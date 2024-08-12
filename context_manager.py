@@ -47,7 +47,8 @@ def int_input(prompt=""):
 
 class JsonManager:
     def __init__(self):
-        self.users_file = "orders.json"
+        self.users_file = "files/users.json"
+        self.groups_file = "files/groups.json"
 
     def __str__(self):
         pass
@@ -106,3 +107,12 @@ class JsonManager:
     def current_time(self):
         self.__str__()
         return datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+
+    def phone_input(self, txt: str):
+        self.__str__()
+        while True:
+            phone: int = int_input(txt)
+            if 900000000 <= phone <= 999999999:
+                return phone
+            else:
+                print("exp:918743565...")

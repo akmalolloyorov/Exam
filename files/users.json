@@ -1,1 +1,87 @@
-{}
+{
+    "student": {
+        "+998952203465": {
+            "full_name": "Yo'ldashev Temur",
+            "username": "tima",
+            "password": "f",
+            "birthday": "08.10.2024",
+            "gmail": "tima@gmail.com",
+            "gender": "male",
+            "balance": 1000000,
+            "my_result": {
+                "xp": 30,
+                "silver": 120,
+                "be_lesson": [
+                    6,
+                    24
+                ],
+                "be_homework": [
+                    24,
+                    96
+                ],
+                "Exam": 0
+            },
+            "sms": [
+                "darsga qatnashganingiz uchun 2 xp berildi",
+                "uyga vasifa bajarganingiz uchun 8 xp berild",
+                "darsga qatnashganingiz uchun 2 xp berildi",
+                "uyga vasifa bajarganingiz uchun 8 xp berild",
+                "darsga qatnashganingiz uchun 2 xp berildi",
+                "uyga vasifa bajarganingiz uchun 8 xp berild"
+            ],
+            "massages": [],
+            "groups": {
+                "n50": {
+                    "direction": "python django, (backend)",
+                    "status": true,
+                    "lessons": {
+                        "if, else, elif": {
+                            "lesson_date": "10.08.2024",
+                            "start_time": "16:00",
+                            "end_time": "18:00",
+                            "grade": 94,
+                            "attendance": true,
+                            "month": 1
+                        },
+                        "for, while": {
+                            "lesson_date": "12.08.2024",
+                            "start_time": "16:00",
+                            "end_time": "18:00",
+                            "grade": 94,
+                            "attendance": true,
+                            "month": 1
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "teacher": {
+        "+998931113565": {
+            "full_name": "Masharipov Nodirbek",
+            "username": "nodirbek",
+            "password": "5",
+            "birthday": "11.10.2003",
+            "gmail": "masharipov@gmail.com",
+            "gender": "male",
+            "groups": [
+                "n50"
+            ],
+            "students": [
+                "+998952203465"
+            ],
+            "sms": [],
+            "massages": {}
+        }
+    },
+    "admin": {
+        "+998972203565": {
+            "full_name": "Akmal Olloyorov",
+            "username": "akmalbek",
+            "password": "5",
+            "birthday": "16.12.2004",
+            "gmail": "proaktiv64@gamil.com",
+            "gender": "male"
+        }
+    }
+}
