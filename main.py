@@ -1,13 +1,14 @@
 import hashlib
+import random
 
-from context_manager import JsonManager, int_input
+from Exam_4.admin.admin import Admin, int_input
 
 
-class Main(JsonManager):
+class Main(Admin):
     def __init__(self):
         super().__init__()
 
-    def show_menu(self):
+    def show_menu(self) -> None:
         text = """
         choice number
         1. Login
@@ -23,125 +24,85 @@ class Main(JsonManager):
         else:
             print("The end...")
 
-    def login(self):
-        pass
+    def login(self) -> None:
+        user_file: dict = self.read_to_file(self.users_file)
+        username: str = input("Username: ").lower().strip()
+        password: str = input("Password: ")
+        p = hashlib.sha256(password.encode("utf-8")).hexdigest()
+        for i, j in user_file.items():
+            for n, k in j.values:
+                if k["username"] == username and k['password'] == p:
+                    if i == "student":
+                        self.show_menu_user(n)
+                        if self.exit:
+                            self.exit = False
+                            return self.show_menu()
 
-    def register(self):
-        full_name = input("Enter full name: ").title()
+                    elif i == "teacher":
+                        self.show_menu_teacher(n)
+                        if self.exit:
+                            self.exit = False
+                            return self.show_menu()
+                    elif i == "admin":
+                        self.show_menu_admin(n)
+                        if self.exit:
+                            self.exit = False
+                            return self.show_menu()
+        print("incorrect password or username. try again later.")
+        self.show_menu()
+
+    def register(self) -> None:
+        users_file: dict = self.read_to_file(self.users_file)
         phone = self.phone_input("Enter your phone number: ")
-        username = input("Enter username: ")
+        full_name = input("Enter full name: ").title()
+        username_list: list = []
+        for i in users_file.values():
+            for j in i.values():
+                username_list.append(j['username'])
+
+        num = random.randint(100000, 999999)
+        while num in username_list:
+            num = random.randint(100000, 999999)
+
         password = input("Enter password: ")
+        birthday = self.birth_input("Enter birth")
+        gmail = input("Enter gmail: ")
+        while "@gmail.com" not in gmail:
+            gmail = input("Enter gmail: ")
         p = hashlib.sha256(password.encode("utf-8")).hexdigest()
         gender_list = ['male', 'female']
         gender = self.list_choice(gender_list)
 
-        u = {
+        user = {
             f"+998{phone}": {
                 "full_name": full_name,
-                "username": username,
+                "username": num,
                 "password": p,
+                "birthday": birthday,
+                "gmail": gmail,
                 "gender": gender,
                 "balance": 0,
+                "my_result": {
+                    "xp": 0,
+                    "silver": 0,
+                    "be_lesson": [0, 0],
+                    "be_homework": [0, 0],
+                    "exam": 0
+                },
+                "sms": [],
+                "massage": [],
+                "groups": {}
 
             }
         }
+        users_file['student'].update(user)
+        self.add_to_file(self.users_file, users_file)
+        print("Registration successful")
+        self.show_menu_user(phone=f"+998{phone}")
+        if self.exit:
+            self.exit = False
+            return self.show_menu()
 
 
 main = Main()
-user = {
-    f"+998{952203465}": {
-        "full_name": "Yo'ldashev Temur",
-        "username": "tima",
-        "password": "f",
-        "birthday": "08.10.2024",
-        "gmail": "tima@gmail.com",
-        "gender": 'male',
-        "balance": 1000000,
-        "my_result": {
-            "xp": 30,
-            "silver": 120,
-            "be_lesson": [6, 24],
-            "be_homework": [24, 96],
-            "Exam": 0
-        },
-        "sms": [
-            "darsga qatnashganingiz uchun 2 xp berildi",
-            "uyga vasifa bajarganingiz uchun 8 xp berild",
-            "darsga qatnashganingiz uchun 2 xp berildi",
-            "uyga vasifa bajarganingiz uchun 8 xp berild",
-            "darsga qatnashganingiz uchun 2 xp berildi",
-            "uyga vasifa bajarganingiz uchun 8 xp berild",
-        ],
-        "massages": [],
-        "groups": {
-            "n50": {
-                "direction": "python django, (backend)",
-                "status": True,
-                "lessons": {
-                    "if, else, elif": {
-                        "lesson_date": "10.08.2024",
-                        "start_time": "16:00",
-                        "end_time": "18:00",
-                        "grade": 94,
-                        "attendance": True,
-                        "month": 1
-                    },
-                    "for, while": {
-                        "lesson_date": "12.08.2024",
-                        "start_time": "16:00",
-                        "end_time": "18:00",
-                        "grade": 94,
-                        "attendance": True,
-                        "month": 1
-                    }
-                }
-            }
-        }
-    }
-}
-users = {
-    "student": {},
-    "teacher": {},
-    "admin": {}
-}
-users['student'].update(user)
-group = {
-    "n50": {
-        "direction": "python django, (backend)",
-        "teachers": ["+998931113565"],
-        "students": ["+998952203465"],
-        "course_price": 1350000,
-        "term": 8
-    }
-}
-teacher = {
-    f"+998{931113565}": {
-        "full_name": "Masharipov Nodirbek",
-        "username": "nodirbek",
-        "password": "5",
-        "birthday": "11.10.2003",
-        "gmail": "masharipov@gmail.com",
-        "gender": "male",
-        "groups": ['n50'],
-        "students": ['+998952203465'],
-        "sms": [],
-        "massages": {},
-
-    }
-}
-admin = {
-    "+998972203565": {
-        "full_name": "Akmal Olloyorov",
-        "username": "akmalbek",
-        "password": "5",
-        "birthday": "16.12.2004",
-        "gmail": "proaktiv64@gamil.com",
-        "gender": "male",
-    }
-}
-
-users['teacher'].update(teacher)
-users['admin'].update(admin)
-
-main.add_to_file(main.users_file, users)
-main.add_to_file(main.groups_file, group)
+main.show_menu()

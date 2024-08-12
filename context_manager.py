@@ -1,6 +1,6 @@
 import json
 import os
-from datetime import datetime
+from datetime import datetime, date
 from contextlib import contextmanager
 
 """
@@ -49,6 +49,7 @@ class JsonManager:
     def __init__(self):
         self.users_file = "files/users.json"
         self.groups_file = "files/groups.json"
+        self.exit = False
 
     def __str__(self):
         pass
@@ -104,11 +105,11 @@ class JsonManager:
             except ValueError:
                 print("incorrect , only number.")
 
-    def current_time(self):
+    def current_time(self) -> str:
         self.__str__()
         return datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
-    def phone_input(self, txt: str):
+    def phone_input(self, txt: str) -> int:
         self.__str__()
         while True:
             phone: int = int_input(txt)
@@ -116,3 +117,18 @@ class JsonManager:
                 return phone
             else:
                 print("exp:918743565...")
+
+    def birth_input(self, text: str) -> str:
+        print(text)
+        self.__str__()
+        day = int_input("birthday exp(02): ")
+        while day < 0 or day > 31:
+            day = int_input("birthday exp(02): ")
+        month = int_input("month exp(12): ")
+        while month < 1 or month > 12:
+            month = int_input("month exp(12): ")
+        year = int_input("year exp(2024): ")
+        current_year = int(date.today().year)
+        while year < 1940 or year > current_year:
+            year = int_input("year exp(2024): ")
+        return f"{day}.{month}.{year}"
