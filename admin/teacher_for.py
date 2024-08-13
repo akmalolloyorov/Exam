@@ -5,3 +5,6 @@ class TeacherFor(StudentFor):
     def teacher_for(self) -> bool:
         self.exit = True
         return self.exit
+
+    def add_teacher(self, file: dict) -> None:
+        pass

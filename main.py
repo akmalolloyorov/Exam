@@ -82,7 +82,7 @@ class Main(Admin):
         gender = self.list_choice(gender_list)
 
         user = {
-            f"+998{phone}": {
+            phone: {
                 "full_name": full_name,
                 "username": str(num),
                 "password": p,
