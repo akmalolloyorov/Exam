@@ -1,7 +1,7 @@
-from Exam_4.teacher.teacher import Teacher, int_input
+from Exam_4.admin.teacher_for import TeacherFor, int_input
 
 
-class Admin(Teacher):
+class Admin(TeacherFor):
     def show_menu_admin(self, phone: str) -> bool:
         text = """
         1. Sozlamalar
