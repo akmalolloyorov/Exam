@@ -1,9 +1,9 @@
 import hashlib
 
-from Exam_4.teacher.teacher import Teacher, int_input
+from Exam_4.admin.teacher_for import TeacherFor, int_input
 
 
-class PersonalAdmin(Teacher):
+class PersonalAdmin(TeacherFor):
     def personal_admin(self, phone: str, file: dict) -> bool:
         self.phone = phone
         text = """

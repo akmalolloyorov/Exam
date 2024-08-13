@@ -16,15 +16,15 @@
                 }
             },
             "my_results": {
-                "xp": 30,
-                "silver": 120,
+                "xp": 24,
+                "silver": 96,
                 "be_lesson": [
-                    6,
-                    24
+                    4,
+                    16
                 ],
                 "be_homework": [
-                    24,
-                    96
+                    20,
+                    80
                 ],
                 "exam": [
                     0,
@@ -49,7 +49,7 @@
                             "lesson_date": "10.08.2024",
                             "start_time": "16:00",
                             "end_time": "18:00",
-                            "grade": 94,
+                            "grade": 100,
                             "attendance": true,
                             "month": 1
                         },
@@ -57,7 +57,7 @@
                             "lesson_date": "12.08.2024",
                             "start_time": "16:00",
                             "end_time": "18:00",
-                            "grade": 94,
+                            "grade": 100,
                             "attendance": true,
                             "month": 1
                         }
@@ -98,7 +98,13 @@
             },
             "sms": [],
             "massage": [],
-            "groups": {}
+            "groups": {
+                "n50": {
+                    "direction": "python django, (backend)",
+                    "status": true,
+                    "lessons": {}
+                }
+            }
         },
         "+998952203565": {
             "full_name": "Yo'ldashev Temur",
@@ -189,7 +195,7 @@
                                     "attendance": true
                                 },
                                 "+998918743565": {
-                                    "grade": 94,
+                                    "grade": 100,
                                     "attendance": true
                                 }
                             },
@@ -205,7 +211,7 @@
                                     "attendance": true
                                 },
                                 "+998918743565": {
-                                    "grade": 94,
+                                    "grade": 100,
                                     "attendance": true
                                 }
                             },

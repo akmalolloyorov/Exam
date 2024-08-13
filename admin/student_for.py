@@ -1,9 +1,9 @@
-from Exam_4.admin.personal_admin import PersonalAdmin, int_input
+from Exam_4.user.user import User, int_input
 import hashlib
 import random
 
 
-class StudentFor(PersonalAdmin):
+class StudentFor(User):
     def choice_user(self, file: dict):
         full_name_list: list = []
         phone_list: list = []
@@ -131,8 +131,127 @@ class StudentFor(PersonalAdmin):
         self.write_to_file(self.users_file, file)
         print("Student o'chirildi")
 
+    def choice_group(self, group_file: dict, phone: str) -> str:
+        group_list: list = []
+        for group, value in group_file.items():
+            for num in value['students'].keys():
+                if num == phone:
+                    pass
+                else:
+                    group_list.append(group)
+        group_set = set(group_list)
+        group_list = list(group_set)
+        if len(group_list) > 0:
+            group: str = self.list_choice(group_list)
+            return group
+        else:
+            return "none"
+
     def add_student_in_group(self, phone: str, file: dict) -> None:
-        pass
+        groups: dict = self.read_to_file(self.groups_file)
+        group = self.choice_group(groups, phone)
+        if group == "none":
+            print("Guruh topilmadi")
+            return
+        else:
+            groups[group]['students'].update({phone: 0})
+            user = {
+                group: {
+                    "direction": groups[group]['direction'],
+                    "status": True,
+                    "lessons": {}
+                }
+            }
+            file['student'][phone]['groups'].update(user)
+            self.write_to_file(self.groups_file, groups)
+            self.write_to_file(self.users_file, file)
+            print(f"{group}-guruhiga qo'shildi.")
+
+    def choice_teacher(self, group: str, teacher_file: dict) -> str:
+        self.__str__()
+        for phone_teacher, value in teacher_file['teacher'].items():
+            for i in value['groups'].keys():
+                if i == group:
+                    return phone_teacher
 
     def change_student_ball(self, phone: str, file: dict) -> None:
-        pass
+        group_list = []
+        lesson_list = []
+        if len(file['student'][phone]['groups']) > 0:
+            for group in file['student'][phone]['groups'].keys():
+                group_list.append(group)
+            group: str = self.list_choice(group_list)
+            if len(file['student'][phone]['groups'][group]['lessons'].keys()) > 0:
+                for lesson in file['student'][phone]['groups'][group]['lessons'].keys():
+                    lesson_list.append(lesson)
+                lesson: str = self.list_choice(lesson_list)
+                print(f"oldingi ball: {file['student'][phone]['groups'][group]['lessons'][lesson]['grade']}")
+                old_ball = file['student'][phone]['groups'][group]['lessons'][lesson]['grade']
+                xp = file['student'][phone]['my_results']['xp']
+                old_xp, old_silver = self.xp_for(old_ball, self.find_level(xp))
+                ball = int_input("Ball kriting: ")
+                while ball < 0 or ball > 100:
+                    print("ball 0 dan 100 gacha bo'lishi kerak qaytadan kriting: ")
+                    ball = int_input("Ball kriting: ")
+                file['student'][phone]['groups'][group]['lessons'][lesson]['grade'] = ball
+                e_xp, e_silver = self.xp_for(ball, self.find_level(xp))
+                print(e_silver)
+                file['student'][phone]['my_results']['xp'] += e_xp - old_xp
+                file['student'][phone]['my_results']['silver'] += e_silver - old_silver
+                file['student'][phone]['my_results']['be_homework'][0] += e_xp - old_xp
+                file['student'][phone]['my_results']['be_homework'][1] += e_silver - old_silver
+                teacher = self.choice_teacher(group, file)
+                file['teacher'][teacher]['groups'][group]['lessons'][lesson]['student'][phone]['grade'] = ball
+
+                self.write_to_file(self.users_file, file)
+                print(f"Ball o'zgartirildi.")
+            else:
+                print("Siz hali dars bo'lmagan")
+        else:
+            print("Sizda guruh yo'q.")
+
+    def find_level(self, xp: int) -> int:
+
+        self.__str__()
+        level = 0
+        if 0 <= xp < 200:
+            level = 0
+        elif 200 <= xp < 450:
+            level = 1
+        elif 450 <= xp < 750:
+            level = 2
+        elif 700 <= xp < 950:
+            level = 3
+        elif 950 <= xp <= 1250:
+            level = 4
+        elif 1250 <= xp <= 20000:
+            level = 5
+        return level
+
+    def xp_for(self, ball: int, level: int):
+        self.__str__()
+        xp = 0
+        silver = 0
+        if 0 < ball <= 50:
+            xp = 0
+        elif 50 < ball <= 74:
+            xp = 4
+        elif 74 < ball <= 84:
+            xp = 6
+        elif 84 < ball <= 94:
+            xp = 8
+        elif 94 < ball <= 100:
+            xp = 10
+        if level == 0:
+            silver = xp * 4
+        elif level == 1:
+            silver = xp * 5
+        elif level == 2:
+            silver = xp * 6
+        elif level == 3:
+            silver = xp * 7
+        elif level == 4:
+            silver = xp * 8
+        elif level == 5:
+            silver = xp * 9
+        return xp, silver
