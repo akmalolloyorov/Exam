@@ -82,6 +82,7 @@ class Main(Admin):
                 "gmail": gmail,
                 "gender": gender,
                 "balance": 0,
+                "my_payments": [],
                 "my_result": {
                     "xp": 0,
                     "silver": 0,
