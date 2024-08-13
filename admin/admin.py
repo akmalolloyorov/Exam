@@ -12,7 +12,7 @@ class Admin(TeacherFor):
         print(text)
         num = int_input("Raqam tanlang: ")
         if num == 2:
-            self.student_for()
+            self.student_for(file=file)
             if self.exit:
                 self.exit = False
                 self.show_menu_admin(phone, file)
