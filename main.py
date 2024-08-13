@@ -10,24 +10,23 @@ class Main(Admin):
 
     def show_menu(self) -> None:
         text = """
-        choice number
-        1. Login
-        2. Register
-        3. Exit
+        1. Kirish
+        2. Ro'yhatdan o'tish
+        3. Chiqish
         """
         print(text)
-        num = int_input("number: ")
+        num = int_input("Raqam kriting: ")
         if num == 1:
             self.login()
         elif num == 2:
             self.register()
         else:
-            print("The end...")
+            print("Dastur tugadi...")
 
     def login(self) -> None:
         user_file: dict = self.read_to_file(self.users_file)
-        username: str = input("Username: ").lower().strip()
-        password: str = input("Password: ")
+        username: str = input("Foydalanuvchi nomi: ").lower().strip()
+        password: str = input("parol: ")
         p = hashlib.sha256(password.encode("utf-8")).hexdigest()
         for i, j in user_file.items():
             for phone, k in j.items():
@@ -49,13 +48,13 @@ class Main(Admin):
                             self.exit = False
                             return self.show_menu()
                     else:
-                        print("incorrect password or username. try again later.")
+                        print("Parol yoki foydalanuvchi nomi xato qaytadan urunib ko'ring.")
                         return self.show_menu()
 
     def register(self) -> None:
         users_file: dict = self.read_to_file(self.users_file)
-        phone = self.phone_input("Enter your phone number: ")
-        full_name = input("Enter full name: ").title()
+        phone = self.phone_input("Telefon raqam kriting: ")
+        full_name = input("To'liq ismingizni kriting: ").title()
         username_list: list = []
         for i in users_file.values():
             for j in i.values():
@@ -65,12 +64,12 @@ class Main(Admin):
         while num in username_list:
             num = random.randint(100000, 999999)
 
-        password = input("Enter password: ")
-        birthday = self.birth_input("Enter birth")
-        gmail = input("Enter gmail: ")
+        password = input("Parol kriting: ")
+        birthday = self.birth_input("tug'ilgan kuninglizni kriting: ")
+        gmail = input("Gmailingizni kriting: ")
         while "@gmail.com" not in gmail:
             print("exp(proaktiv64@gmail.com)")
-            gmail = input("Enter gmail: ")
+            gmail = input("Qaytadan kriting: ")
         p = hashlib.sha256(password.encode("utf-8")).hexdigest()
         gender_list = ['male', 'female']
         gender = self.list_choice(gender_list)
@@ -90,7 +89,7 @@ class Main(Admin):
                     "silver": 0,
                     "be_lesson": [0, 0],
                     "be_homework": [0, 0],
-                    "exam": 0
+                    "exam": [0, 0]
                 },
                 "sms": [],
                 "massage": [],
@@ -100,7 +99,7 @@ class Main(Admin):
         }
         users_file['student'].update(user)
         self.add_to_file(self.users_file, users_file)
-        print("Registration successful")
+        print(f"Ro'yhatdan o'tdingiz sizning usernamegiz: {num}")
         self.show_menu_user(phone=phone, file=users_file)
         if self.exit:
             self.exit = False

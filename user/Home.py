@@ -2,6 +2,9 @@ from Exam_4.user.personal_information import PersonalInfo, int_input
 
 
 class HomePage(PersonalInfo):
+    def __init__(self):
+        super().__init__()
+
     def home_page(self, phone: str, file: dict) -> None:
         silver = file['student'][phone]['my_results']['silver']
         xp = file['student'][phone]['my_results']['xp']

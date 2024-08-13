@@ -26,7 +26,10 @@
                     24,
                     96
                 ],
-                "exam": [0,0]
+                "exam": [
+                    0,
+                    0
+                ]
             },
             "sms": [
                 "darsga qatnashganingiz uchun 2 xp berildi",
@@ -88,7 +91,10 @@
                     24,
                     96
                 ],
-                "exam": 0
+                "exam": [
+                    0,
+                    0
+                ]
             },
             "sms": [
                 "darsga qatnashganingiz uchun 2 xp berildi",
@@ -124,12 +130,12 @@
                 }
             }
         },
-        "+998999999999": {
-            "full_name": "John Smith",
+        "+998997107655": {
+            "full_name": "Mike Tyson",
             "username": "812326",
             "password": "ef2d127de37b942baad06145e54b0c619a1f22327b2ebbcfbec78f5564afe39d",
-            "birthday": "3.6.1998",
-            "gmail": "john@gmail.com",
+            "birthday": "04.12.1965",
+            "gmail": "tyson@gmail.com",
             "gender": "male",
             "balance": 5400000,
             "my_payments": {
@@ -150,7 +156,10 @@
                     0,
                     0
                 ],
-                "exam": 0
+                "exam": [
+                    0,
+                    0
+                ]
             },
             "sms": [],
             "massage": [],

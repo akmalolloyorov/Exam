@@ -33,13 +33,13 @@ class User(Payments):
             self.my_rating(phone=phone, file=file)
             self.show_menu_user(phone=phone, file=file)
         elif num == 6:
-            self.shop(phone=phone, file=file)
+            print("Tez orada qo'shiladi")
             self.show_menu_user(phone=phone, file=file)
         elif num == 7:
             self.personal_info(phone=phone, file=file)
             if self.exit:
                 self.exit = False
-                self.show_menu_user(phone=phone, file=file)
+                self.show_menu_user(phone=self.phone, file=file)
         else:
             self.exit = True
             return self.exit
@@ -108,5 +108,5 @@ class User(Payments):
     def my_rating(self, phone: str, file: dict) -> None:
         pass
 
-    def shop(self, phone: str, file: dict) -> None:
-        print("Tez orada...")
+    # def shop(self, phone: str, file: dict) -> None:
+    #     print("Tez orada qo'shiladi")

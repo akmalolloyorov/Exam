@@ -121,14 +121,14 @@ class JsonManager:
     def birth_input(self, text: str) -> str:
         print(text)
         self.__str__()
-        day = int_input("birthday exp(02): ")
-        while day < 0 or day > 31:
-            day = int_input("birthday exp(02): ")
-        month = int_input("month exp(12): ")
-        while month < 1 or month > 12:
-            month = int_input("month exp(12): ")
-        year = int_input("year exp(2024): ")
+        day = input("birthday exp(02): ")
+        while int(day) < 0 or int(day) > 31:
+            day = input("birthday exp(02): ")
+        month = input("month exp(12): ")
+        while int(month) < 1 or int(month) > 12:
+            month = input("month exp(12): ")
+        year = input("year exp(2024): ")
         current_year = int(date.today().year)
-        while year < 1940 or year > current_year:
-            year = int_input("year exp(2024): ")
+        while int(year) < 1940 or int(year) > current_year:
+            year = input("year exp(2024): ")
         return f"{day}.{month}.{year}"

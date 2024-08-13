@@ -32,6 +32,7 @@ class Payments(HomePage):
         print("To'lov qilindi!")
 
     def my_payments(self, phone: str, file: dict) -> None:
-        for j, i in file["student"][phone]["my_payments"].values():
+        for j, i in file["student"][phone]["my_payments"].items():
             print(f"{j}.Money: {i['money']}, Date: {i['date']}, Type: {i['type']}")
         self.__str__()
+
