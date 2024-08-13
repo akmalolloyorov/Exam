@@ -13,19 +13,19 @@ class Admin(TeacherFor):
         num = int_input("Raqam tanlang: ")
         if num == 2:
             self.student_for()
+            if self.exit:
+                self.exit = False
+                self.show_menu_admin(phone)
         elif num == 3:
             self.teacher_for()
+            if self.exit:
+                self.exit = False
+                self.show_menu_admin(phone)
         elif num == 1:
             self.personal_admin(phone)
+            if self.exit:
+                self.exit = False
+                self.show_menu_admin(self.phone)
         else:
             self.exit = True
             return self.exit
-
-    def personal_admin(self, phone: str) -> None:
-        pass
-
-    def student_for(self) -> bool:
-        pass
-
-    def teacher_for(self) -> bool:
-        pass
