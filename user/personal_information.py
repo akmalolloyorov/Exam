@@ -23,22 +23,22 @@ class PersonalInfo(JsonManager):
         num = int_input("Raqamni tanlang: ")
         if num == 1:
             self.change_phone(phone=phone, file=file)
-            self.personal_info(phone, file)
+            self.personal_info(self.phone, file)
         elif num == 2:
             self.change_full_name(phone=phone, file=file)
-            self.personal_info(phone, file)
+            self.personal_info(self.phone, file)
         elif num == 3:
             self.change_username(phone=phone, file=file)
-            self.personal_info(phone, file)
+            self.personal_info(self.phone, file)
         elif num == 4:
             self.change_password(phone=phone, file=file)
-            self.personal_info(phone, file)
+            self.personal_info(self.phone, file)
         elif num == 5:
             self.change_birth_date(phone=phone, file=file)
-            self.personal_info(phone, file)
+            self.personal_info(self.phone, file)
         elif num == 6:
             self.change_gmail(phone=phone, file=file)
-            self.personal_info(phone, file)
+            self.personal_info(self.phone, file)
         else:
             self.exit = True
             return self.exit
@@ -46,11 +46,23 @@ class PersonalInfo(JsonManager):
     def change_phone(self, phone: str, file: dict) -> None:
         print(f"Sizning telefon raqamingiz: {phone}")
         new_phone = self.phone_input("Yangi telefon no'mer kriting: ")
+        while new_phone in file['admin'] or new_phone in file['student'] or new_phone in file['teacher']:
+            print("Bu raqam ro'yhatda bor. Ushbu raqamni qayta kiriting: ")
+            new_phone = self.phone_input("Yangi telefon no'mer kriting: ")
+
+        groups = self.read_to_file(self.groups_file)
+        if len(file['student'][phone]['groups']) > 0:
+            for i in file['student'][phone]['groups'].keys():
+                xp = groups[i]['students'][phone]
+                del groups[i]['students'][phone]
+                groups[i]['students'][new_phone] = xp
         user = {new_phone: file['student'][phone]}
         file['student'].update(user)
         del file['student'][phone]
-        self.write_to_file(self.users_file, file)
+
         self.phone = new_phone
+        self.write_to_file(self.groups_file, groups)
+        self.write_to_file(self.users_file, file)
 
     def change_full_name(self, phone: str, file: dict) -> None:
         new_full_name = input("Yangi to'liq ismingizni kriting: ").title()
@@ -60,9 +72,13 @@ class PersonalInfo(JsonManager):
     def change_username(self, phone: str, file: dict) -> None:
         print(f"Sizning usenamegiz :{file['student'][phone]['username']}")
         new_username = input("Yangi usernameni kriting: ").lower().strip()
-        for i in file['student'].values():
-            if new_username in i['username']:
-                new_username = input('Bu username allaqadagi. Ushbu usernameni qayta kiriting: ')
+        user_list = []
+        for a, i in file.items():
+            for j in i.values():
+                user_list.append(j['username'])
+        while new_username in user_list:
+            print('Bu username band. Ushbu usernameni qayta kiriting: ')
+            new_username = input('Bu username allaqadagi. Ushbu usernameni qayta kiriting: ')
         file['student'][phone]['username'] = new_username
         self.write_to_file(self.users_file, file)
 

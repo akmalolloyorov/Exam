@@ -7,6 +7,7 @@ from Exam_4.admin.admin import Admin, int_input
 class Main(Admin):
     def __init__(self):
         super().__init__()
+        self.true = False
 
     def show_menu(self) -> None:
         text = """
@@ -43,13 +44,19 @@ class Main(Admin):
                             self.exit = False
                             return self.show_menu()
                     elif i == "admin":
-                        self.show_menu_admin(phone=phone)
+                        self.show_menu_admin(phone=phone, file=user_file)
                         if self.exit:
                             self.exit = False
                             return self.show_menu()
                     else:
                         print("Parol yoki foydalanuvchi nomi xato qaytadan urunib ko'ring.")
                         return self.show_menu()
+                else:
+                    self.true = True
+        if self.true:
+            print("Parol yoki foydalanuvchi nomi xato qaytadan urunib ko'ring.")
+            self.true = False
+            return self.show_menu()
 
     def register(self) -> None:
         users_file: dict = self.read_to_file(self.users_file)

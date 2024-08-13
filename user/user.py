@@ -3,6 +3,7 @@ from Exam_4.user.payments import Payments, int_input
 
 class User(Payments):
     def show_menu_user(self, phone: str, file: dict) -> bool:
+        self.phone = phone
         self.home_page(phone=phone, file=file)
         text = """
         1. ⌂ Bosh sahifa
