@@ -7,8 +7,14 @@
             "birthday": "08.10.2024",
             "gmail": "tima@gmail.com",
             "gender": "male",
-            "balance": 3000000,
-            "my_payments": [],
+            "balance": 5000000,
+            "my_payments": {
+                "1": {
+                    "money": 1350000,
+                    "date": "2024-08-10 13:23:22",
+                    "type": "card"
+                }
+            },
             "my_results": {
                 "xp": 30,
                 "silver": 120,
@@ -20,7 +26,7 @@
                     24,
                     96
                 ],
-                "exam": 0
+                "exam": [0,0]
             },
             "sms": [
                 "darsga qatnashganingiz uchun 2 xp berildi",
@@ -64,7 +70,13 @@
             "gmail": "jalolid812326dinmahmudjanov@gmail.com",
             "gender": "male",
             "balance": 2000000,
-            "my_payments": [],
+            "my_payments": {
+                "1": {
+                    "money": 1350000,
+                    "date": "2024-08-10 13:23:22",
+                    "type": "card"
+                }
+            },
             "my_results": {
                 "xp": 30,
                 "silver": 120,
@@ -119,8 +131,14 @@
             "birthday": "3.6.1998",
             "gmail": "john@gmail.com",
             "gender": "male",
-            "balance": 0,
-            "my_payments": [],
+            "balance": 5400000,
+            "my_payments": {
+                "1": {
+                    "money": 1350000,
+                    "date": "2024-08-10 13:23:22",
+                    "type": "card"
+                }
+            },
             "my_results": {
                 "xp": 0,
                 "silver": 0,

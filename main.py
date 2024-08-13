@@ -48,8 +48,9 @@ class Main(Admin):
                         if self.exit:
                             self.exit = False
                             return self.show_menu()
-        print("incorrect password or username. try again later.")
-        self.show_menu()
+                    else:
+                        print("incorrect password or username. try again later.")
+                        return self.show_menu()
 
     def register(self) -> None:
         users_file: dict = self.read_to_file(self.users_file)
