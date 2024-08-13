@@ -30,21 +30,21 @@ class Main(Admin):
         password: str = input("Password: ")
         p = hashlib.sha256(password.encode("utf-8")).hexdigest()
         for i, j in user_file.items():
-            for n, k in j.values:
+            for phone, k in j.values:
                 if k["username"] == username and k['password'] == p:
                     if i == "student":
-                        self.show_menu_user(n)
+                        self.show_menu_user(phone=phone, file=user_file)
                         if self.exit:
                             self.exit = False
                             return self.show_menu()
 
                     elif i == "teacher":
-                        self.show_menu_teacher(n)
+                        self.show_menu_teacher(phone=phone)
                         if self.exit:
                             self.exit = False
                             return self.show_menu()
                     elif i == "admin":
-                        self.show_menu_admin(n)
+                        self.show_menu_admin(phone=phone)
                         if self.exit:
                             self.exit = False
                             return self.show_menu()
@@ -99,7 +99,7 @@ class Main(Admin):
         users_file['student'].update(user)
         self.add_to_file(self.users_file, users_file)
         print("Registration successful")
-        self.show_menu_user(phone=f"+998{phone}")
+        self.show_menu_user(phone=f"+998{phone}", file=users_file)
         if self.exit:
             self.exit = False
             return self.show_menu()

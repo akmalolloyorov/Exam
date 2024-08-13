@@ -1,8 +1,9 @@
-from Exam_4.user.personal_information import PersonalInfo, int_input
+from Exam_4.user.Home import HomePage, int_input
 
 
-class User(PersonalInfo):
-    def show_menu_user(self, phone: str) -> bool:
+class User(HomePage):
+    def show_menu_user(self, phone: str, file: dict) -> bool:
+        self.home_page(phone=phone, file=file)
         text = """
         1. Bosh sahifa
         2. To'lovlarim
@@ -16,46 +17,42 @@ class User(PersonalInfo):
         print(text)
         num = int_input("Raqamni tanglang: ")
         if num == 1:
-            self.home_page(phone=phone)
-            self.show_menu_user(phone=phone)
+            self.show_menu_user(phone=phone, file=file)
         elif num == 2:
-            self.my_payments(phone=phone)
-            self.show_menu_user(phone=phone)
+            self.my_payments(phone=phone, file=file)
+            self.show_menu_user(phone=phone, file=file)
         elif num == 3:
-            self.my_groups(phone=phone)
-            self.show_menu_user(phone=phone)
+            self.my_groups(phone=phone, file=file)
+            self.show_menu_user(phone=phone, file=file)
         elif num == 4:
-            self.my_pointers(phone=phone)
-            self.show_menu_user(phone=phone)
+            self.my_pointers(phone=phone, file=file)
+            self.show_menu_user(phone=phone, file=file)
         elif num == 5:
-            self.my_rating(phone=phone)
-            self.show_menu_user(phone=phone)
+            self.my_rating(phone=phone, file=file)
+            self.show_menu_user(phone=phone, file=file)
         elif num == 6:
-            self.shop(phone=phone)
-            self.show_menu_user(phone=phone)
+            self.shop(phone=phone, file=file)
+            self.show_menu_user(phone=phone, file=file)
         elif num == 7:
-            self.personal_info(phone=phone)
+            self.personal_info(phone=phone, file=file)
             if self.exit:
                 self.exit = False
-                self.show_menu_user(phone=phone)
+                self.show_menu_user(phone=phone, file=file)
         else:
             self.exit = True
             return self.exit
 
-    def home_page(self, phone: str) -> None:
+    def my_payments(self, phone: str, file: dict) -> None:
         pass
 
-    def my_payments(self, phone: str) -> None:
+    def my_groups(self, phone: str, file: dict) -> None:
         pass
 
-    def my_groups(self, phone: str) -> None:
+    def my_pointers(self, phone: str, file: dict) -> None:
         pass
 
-    def my_pointers(self, phone: str) -> None:
+    def my_rating(self, phone: str, file: dict) -> None:
         pass
 
-    def my_rating(self, phone: str) -> None:
-        pass
-
-    def shop(self, phone: str) -> None:
+    def shop(self, phone: str, file: dict) -> None:
         pass
