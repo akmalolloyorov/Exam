@@ -1,11 +1,12 @@
-from Exam_4.user.Home import HomePage, int_input
+from Exam_4.user.payments import Payments, int_input
 
 
-class User(HomePage):
+class User(Payments):
     def show_menu_user(self, phone: str, file: dict) -> bool:
+        print("Hush kelibsiz...")
         self.home_page(phone=phone, file=file)
         text = """
-        1. Bosh sahifa
+        1. ⌂ Bosh sahifa
         2. To'lovlarim
         3. Guruhlarim
         4. Ko'rsatgichlarim
@@ -19,7 +20,7 @@ class User(HomePage):
         if num == 1:
             self.show_menu_user(phone=phone, file=file)
         elif num == 2:
-            self.my_payments(phone=phone, file=file)
+            self.payment(phone=phone, file=file)
             self.show_menu_user(phone=phone, file=file)
         elif num == 3:
             self.my_groups(phone=phone, file=file)
@@ -41,9 +42,6 @@ class User(HomePage):
         else:
             self.exit = True
             return self.exit
-
-    def my_payments(self, phone: str, file: dict) -> None:
-        pass
 
     def my_groups(self, phone: str, file: dict) -> None:
         pass

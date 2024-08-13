@@ -1,117 +1,208 @@
 {
-  "student": {
-    "+998952203465": {
-      "full_name": "Yo'ldashev Temur",
-      "username": "tima",
-      "password": "f",
-      "birthday": "08.10.2024",
-      "gmail": "tima@gmail.com",
-      "gender": "male",
-      "balance": 1000000,
-      "my_payments": [],
-      "my_result": {
-        "xp": 30,
-        "silver": 120,
-        "be_lesson": [
-          6,
-          24
-        ],
-        "be_homework": [
-          24,
-          96
-        ],
-        "exam": 0
-      },
-      "sms": [
-        "darsga qatnashganingiz uchun 2 xp berildi",
-        "uyga vasifa bajarganingiz uchun 8 xp berild",
-        "darsga qatnashganingiz uchun 2 xp berildi",
-        "uyga vasifa bajarganingiz uchun 8 xp berild",
-        "darsga qatnashganingiz uchun 2 xp berildi",
-        "uyga vasifa bajarganingiz uchun 8 xp berild"
-      ],
-      "massages": [],
-      "groups": {
-        "n50": {
-          "direction": "python django, (backend)",
-          "status": true,
-          "lessons": {
-            "if, else, elif": {
-              "lesson_date": "10.08.2024",
-              "start_time": "16:00",
-              "end_time": "18:00",
-              "grade": 94,
-              "attendance": true,
-              "month": 1
+    "student": {
+        "+998952203465": {
+            "full_name": "Yo'ldashev Temur",
+            "username": "tima",
+            "password": "ef2d127de37b942baad06145e54b0c619a1f22327b2ebbcfbec78f5564afe39d",
+            "birthday": "08.10.2024",
+            "gmail": "tima@gmail.com",
+            "gender": "male",
+            "balance": 3000000,
+            "my_payments": [],
+            "my_results": {
+                "xp": 30,
+                "silver": 120,
+                "be_lesson": [
+                    6,
+                    24
+                ],
+                "be_homework": [
+                    24,
+                    96
+                ],
+                "exam": 0
             },
-            "for, while": {
-              "lesson_date": "12.08.2024",
-              "start_time": "16:00",
-              "end_time": "18:00",
-              "grade": 94,
-              "attendance": true,
-              "month": 1
-            }
-          }
-        }
-      }
-    }
-  },
-  "teacher": {
-    "+998931113565": {
-      "full_name": "Masharipov Nodirbek",
-      "username": "nodirbek",
-      "password": "5",
-      "birthday": "11.10.2003",
-      "gmail": "masharipov@gmail.com",
-      "gender": "male",
-      "groups": {
-        "n50": {
-          "direction": "python django, (backend)",
-          "status": true,
-          "lessons": {
-            "if, else, elif": {
-              "lesson_date": "10.08.2024",
-              "start_time": "16:00",
-              "end_time": "18:00",
-              "student": {
-                "+998952203465": {
-                  "grade": 94,
-                  "attendance": true
+            "sms": [
+                "darsga qatnashganingiz uchun 2 xp berildi",
+                "uyga vasifa bajarganingiz uchun 8 xp berild",
+                "darsga qatnashganingiz uchun 2 xp berildi",
+                "uyga vasifa bajarganingiz uchun 8 xp berild",
+                "darsga qatnashganingiz uchun 2 xp berildi",
+                "uyga vasifa bajarganingiz uchun 8 xp berild"
+            ],
+            "massages": [],
+            "groups": {
+                "n50": {
+                    "direction": "python django, (backend)",
+                    "status": true,
+                    "lessons": {
+                        "if, else, elif": {
+                            "lesson_date": "10.08.2024",
+                            "start_time": "16:00",
+                            "end_time": "18:00",
+                            "grade": 94,
+                            "attendance": true,
+                            "month": 1
+                        },
+                        "for, while": {
+                            "lesson_date": "12.08.2024",
+                            "start_time": "16:00",
+                            "end_time": "18:00",
+                            "grade": 94,
+                            "attendance": true,
+                            "month": 1
+                        }
+                    }
                 }
-              },
-              "month": 1
+            }
+        },
+        "+998918743565": {
+            "full_name": "Mahmudjanov Jaloliddin",
+            "username": "jackson",
+            "password": "ef2d127de37b942baad06145e54b0c619a1f22327b2ebbcfbec78f5564afe39d",
+            "birthday": "04.05.2024",
+            "gmail": "jalolid812326dinmahmudjanov@gmail.com",
+            "gender": "male",
+            "balance": 2000000,
+            "my_payments": [],
+            "my_results": {
+                "xp": 30,
+                "silver": 120,
+                "be_lesson": [
+                    6,
+                    24
+                ],
+                "be_homework": [
+                    24,
+                    96
+                ],
+                "exam": 0
             },
-            "for, while": {
-              "lesson_date": "12.08.2024",
-              "start_time": "16:00",
-              "end_time": "18:00",
-              "student": {
-                "+998952203465": {
-                  "grade": 94,
-                  "attendance": true
+            "sms": [
+                "darsga qatnashganingiz uchun 2 xp berildi",
+                "uyga vasifa bajarganingiz uchun 8 xp berild",
+                "darsga qatnashganingiz uchun 2 xp berildi",
+                "uyga vasifa bajarganingiz uchun 8 xp berild",
+                "darsga qatnashganingiz uchun 2 xp berildi",
+                "uyga vasifa bajarganingiz uchun 8 xp berild"
+            ],
+            "massages": [],
+            "groups": {
+                "n50": {
+                    "direction": "python django, (backend)",
+                    "status": true,
+                    "lessons": {
+                        "if, else, elif": {
+                            "lesson_date": "10.08.2024",
+                            "start_time": "16:00",
+                            "end_time": "18:00",
+                            "grade": 94,
+                            "attendance": true,
+                            "month": 1
+                        },
+                        "for, while": {
+                            "lesson_date": "12.08.2024",
+                            "start_time": "16:00",
+                            "end_time": "18:00",
+                            "grade": 94,
+                            "attendance": true,
+                            "month": 1
+                        }
+                    }
                 }
-              },
-              "month": 1
             }
-          }
+        },
+        "+998999999999": {
+            "full_name": "John Smith",
+            "username": "812326",
+            "password": "ef2d127de37b942baad06145e54b0c619a1f22327b2ebbcfbec78f5564afe39d",
+            "birthday": "3.6.1998",
+            "gmail": "john@gmail.com",
+            "gender": "male",
+            "balance": 0,
+            "my_payments": [],
+            "my_results": {
+                "xp": 0,
+                "silver": 0,
+                "be_lesson": [
+                    0,
+                    0
+                ],
+                "be_homework": [
+                    0,
+                    0
+                ],
+                "exam": 0
+            },
+            "sms": [],
+            "massage": [],
+            "groups": {}
         }
-      },
-      "students": [
-        "+998952203465"
-      ],
-      "sms": [],
-      "massages": {}
+    },
+    "teacher": {
+        "+998931113565": {
+            "full_name": "Masharipov Nodirbek",
+            "username": "nodirbek",
+            "password": "5",
+            "birthday": "11.10.2003",
+            "gmail": "masharipov@gmail.com",
+            "gender": "male",
+            "groups": {
+                "n50": {
+                    "direction": "python django, (backend)",
+                    "status": true,
+                    "lessons": {
+                        "if, else, elif": {
+                            "lesson_date": "10.08.2024",
+                            "start_time": "16:00",
+                            "end_time": "18:00",
+                            "student": {
+                                "+998952203465": {
+                                    "grade": 94,
+                                    "attendance": true
+                                },
+                                "+998918743565": {
+                                    "grade": 94,
+                                    "attendance": true
+                                }
+                            },
+                            "month": 1
+                        },
+                        "for, while": {
+                            "lesson_date": "12.08.2024",
+                            "start_time": "16:00",
+                            "end_time": "18:00",
+                            "student": {
+                                "+998952203465": {
+                                    "grade": 94,
+                                    "attendance": true
+                                },
+                                "+998918743565": {
+                                    "grade": 94,
+                                    "attendance": true
+                                }
+                            },
+                            "month": 1
+                        }
+                    }
+                }
+            },
+            "students": [
+                "+998952203465",
+                "+998918743565"
+            ],
+            "sms": [],
+            "massages": {}
+        }
+    },
+    "admin": {
+        "+998972203565": {
+            "full_name": "Akmal Olloyorov",
+            "username": "akmalbek",
+            "password": "5",
+            "birthday": "16.12.2004",
+            "gmail": "proaktiv64@gamil.com",
+            "gender": "male"
+        }
     }
-  },
-  "admin": {
-    "+998972203565": {
-      "full_name": "Akmal Olloyorov",
-      "username": "akmalbek",
-      "password": "5",
-      "birthday": "16.12.2004",
-      "gmail": "proaktiv64@gamil.com",
-      "gender": "male"
-    }
-  }
 }

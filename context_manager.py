@@ -109,12 +109,12 @@ class JsonManager:
         self.__str__()
         return datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
-    def phone_input(self, txt: str) -> int:
+    def phone_input(self, txt: str) -> str:
         self.__str__()
         while True:
             phone: int = int_input(txt)
             if 900000000 <= phone <= 999999999:
-                return phone
+                return f"+998{phone}"
             else:
                 print("exp:918743565...")
 

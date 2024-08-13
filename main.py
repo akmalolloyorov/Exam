@@ -30,7 +30,7 @@ class Main(Admin):
         password: str = input("Password: ")
         p = hashlib.sha256(password.encode("utf-8")).hexdigest()
         for i, j in user_file.items():
-            for phone, k in j.values:
+            for phone, k in j.items():
                 if k["username"] == username and k['password'] == p:
                     if i == "student":
                         self.show_menu_user(phone=phone, file=user_file)
@@ -68,6 +68,7 @@ class Main(Admin):
         birthday = self.birth_input("Enter birth")
         gmail = input("Enter gmail: ")
         while "@gmail.com" not in gmail:
+            print("exp(proaktiv64@gmail.com)")
             gmail = input("Enter gmail: ")
         p = hashlib.sha256(password.encode("utf-8")).hexdigest()
         gender_list = ['male', 'female']
@@ -76,14 +77,14 @@ class Main(Admin):
         user = {
             f"+998{phone}": {
                 "full_name": full_name,
-                "username": num,
+                "username": str(num),
                 "password": p,
                 "birthday": birthday,
                 "gmail": gmail,
                 "gender": gender,
                 "balance": 0,
                 "my_payments": [],
-                "my_result": {
+                "my_results": {
                     "xp": 0,
                     "silver": 0,
                     "be_lesson": [0, 0],
@@ -99,7 +100,7 @@ class Main(Admin):
         users_file['student'].update(user)
         self.add_to_file(self.users_file, users_file)
         print("Registration successful")
-        self.show_menu_user(phone=f"+998{phone}", file=users_file)
+        self.show_menu_user(phone=phone, file=users_file)
         if self.exit:
             self.exit = False
             return self.show_menu()
