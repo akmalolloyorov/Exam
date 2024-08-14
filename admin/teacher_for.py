@@ -1,5 +1,6 @@
 import hashlib
 import json
+import random
 
 from Exam_4.teacher.teacher import Teacher, int_input
 
@@ -232,6 +233,7 @@ class TeacherFor(Teacher):
                 self.write_to_file(self.users_file, file)
                 self.write_to_file(self.groups_file, groups)
                 print("Qo'shildi...")
+                print(f"Uztoz username:{username}")
             else:
                 print('guruh band')
         else:
@@ -262,7 +264,7 @@ class TeacherFor(Teacher):
         for i, j in file.items():
             for n, m in j.items():
                 user_list.append(m['username'])
-        username = input("Enter username: ").lower().strip()
+        username = random.randint(100000, 999999)
         while username in user_list:
-            username = input("Bu username band boshqasin kriting: ").lower().strip()
-        return username
+            username = random.randint(100000, 999999)
+        return "username"

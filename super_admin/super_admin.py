@@ -45,6 +45,7 @@ class SupperAdmin(Admin):
         }
         file.update(user)
         self.write_to_file(self.users_file, user)
+        print(f"Admin qo'shilid amdin uername: {username}")
 
     def delete_admin(self, file):
         admin_name_list = []
