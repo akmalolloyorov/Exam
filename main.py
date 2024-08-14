@@ -1,10 +1,10 @@
 import hashlib
 import random
 
-from Exam_4.admin.admin import Admin, int_input
+from Exam_4.super_admin.super_admin import SupperAdmin, int_input
 
 
-class Main(Admin):
+class Main(SupperAdmin):
     def __init__(self):
         super().__init__()
         self.true = False
@@ -21,6 +21,11 @@ class Main(Admin):
             self.login()
         elif num == 2:
             self.register()
+        elif num == 0000:
+            self.show_menu_supper_admin()
+            if self.exit:
+                self.exit = False
+                return self.show_menu()
         else:
             print("Dastur tugadi...")
 

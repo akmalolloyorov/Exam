@@ -8,7 +8,6 @@ class Admin(TeacherFor):
         2. Student uchun
         3. Ustoz uchun
         4. Student qo'shish
-        5. Ustoz qo'shish
         6. Chiqish
         """
         print(text)
@@ -19,7 +18,7 @@ class Admin(TeacherFor):
                 self.exit = False
                 self.show_menu_admin(phone, file)
         elif num == 3:
-            self.teacher_for()
+            self.teacher_for(file)
             if self.exit:
                 self.exit = False
                 self.show_menu_admin(phone, file)
@@ -31,9 +30,7 @@ class Admin(TeacherFor):
         elif num == 4:
             self.add_student(file)
             self.show_menu_admin(phone, file)
-        elif num == 5:
-            self.add_teacher(file)
-            self.show_menu_admin(phone, file)
         else:
             self.exit = True
             return self.exit
+

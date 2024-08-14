@@ -25,7 +25,7 @@ class TeacherFor(Teacher):
                 self.teacher_settings(phone=self.phone, file=file)
                 self.teacher_for(file)
             elif num == 3:
-                self.add_teacher()
+                self.add_teacher(file)
                 self.teacher_for(file)
             elif num == 4:
                 self.delete_teacher(phone=phone, file=file)
@@ -167,7 +167,7 @@ class TeacherFor(Teacher):
         else:
             self.teacher_settings(self.phone, file)
 
-    def add_teacher(self) -> None:
+    def add_teacher(self, file: dict) -> None:
         pass
 
     def delete_teacher(self, phone: str, file: dict) -> None:
