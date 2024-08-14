@@ -1,7 +1,7 @@
-from Exam_4.admin.student_for import StudentFor, int_input
+from Exam_4.teacher.personal_teacher import PersonalTeacher, int_input
 
 
-class Teacher(StudentFor):
+class Teacher(PersonalTeacher):
     def show_menu_teacher(self, phone: str, file: dict) -> bool:
         text = """
         1. Dars o'tish
@@ -138,7 +138,7 @@ class Teacher(StudentFor):
             for group in file['teacher'][phone]['groups'].keys():
                 group_list.append(group)
             group: str = self.list_choice(group_list)
-            if len(file['teacher'][phone]['groups'][group]) > 0:
+            if len(file['teacher'][phone]['groups'][group]['lessons']) > 0:
                 for lesson in file['teacher'][phone]['groups'][group]['lessons'].keys():
                     lessons.append(lesson)
                 lesson: str = self.list_choice(lessons)
@@ -188,7 +188,7 @@ class Teacher(StudentFor):
             for group in file['teacher'][phone]['groups'].keys():
                 group_list.append(group)
             group: str = self.list_choice(group_list)
-            if len(file['teacher'][phone]['groups'][group]) > 0:
+            if len(file['teacher'][phone]['groups'][group]['lessons']) > 0:
                 for lesson in file['teacher'][phone]['groups'][group]['lessons'].keys():
                     lessons.append(lesson)
                 lesson: str = self.list_choice(lessons)
@@ -221,4 +221,25 @@ class Teacher(StudentFor):
                     self.write_to_file(self.groups_file, group_file)
 
     def view_lesson_time(self, phone: str, file: dict) -> None:
-        pass
+        group_lies: list = []
+        lesson_list = []
+        if len(file['teacher'][phone]['groups']) > 0:
+            for group in file['teacher'][phone]['groups'].keys():
+                group_lies.append(group)
+            group: str = self.list_choice(group_lies)
+            if len(file['teacher'][phone]['groups'][group]['lessons']) > 0:
+                for lesson in file['teacher'][phone]['groups'][group]['lessons'].keys():
+                    lesson_list.append(lesson)
+                lesson: str = self.list_choice(lesson_list)
+                text = f"""
+        Dars sanasi: {file['teacher'][phone]['groups'][group]['lessons'][lesson]['lesson_date']}
+        Boshlash vaqti: {file['teacher'][phone]['groups'][group]['lessons'][lesson]['start_time']} 
+        Tugash vaqti: {file['teacher'][phone]['groups'][group]['lessons'][lesson]['end_time']}
+"""
+                print(text)
+            else:
+                print("Sizda hali dsars qo'shilmagan.")
+                return
+        else:
+            print("Sizning baholash uchun guruhingiz yo'q adminga murojat qiling")
+            return
