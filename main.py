@@ -22,7 +22,8 @@ class Main(SupperAdmin):
         elif num == 2:
             self.register()
         elif num == 0000:
-            self.show_menu_supper_admin()
+            file: dict = self.read_to_file(self.users_file)
+            self.show_menu_supper_admin(file)
             if self.exit:
                 self.exit = False
                 return self.show_menu()
