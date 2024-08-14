@@ -47,7 +47,17 @@ class SupperAdmin(Admin):
         self.write_to_file(self.users_file, user)
 
     def delete_admin(self, file):
-        pass
+        admin_name_list = []
+        admin_user_list = []
+        for i, j in file['admin'].items():
+            admin_user_list.append(i)
+            admin_name_list.append(j['full_name'])
+        admin_name = self.list_choice(admin_name_list)
+        admin_index = admin_name_list.index(admin_name)
+        admin_user = admin_user_list[admin_index]
+        del file['admin'][admin_user]
+        self.write_to_file(self.users_file, file)
+        print("Admin o'chirildi.")
 
     def check_phone(self, file):
         phone_list = []
