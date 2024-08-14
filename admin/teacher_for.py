@@ -1,3 +1,4 @@
+import hashlib
 import json
 
 from Exam_4.teacher.teacher import Teacher, int_input
@@ -5,34 +6,34 @@ from Exam_4.teacher.teacher import Teacher, int_input
 
 class TeacherFor(Teacher):
     def teacher_for(self, file: dict) -> bool:
-        phone = self.choice_teacher_admin_for(file=file)
-        if phone == "none":
-            print("Hali teacher qo'shilmagan")
-        else:
-            text = """
-            1. Teacher haqida malumot
-            2. Teacher sozlamalari 
-            3. Teacher qo'shish
-            4. Teacher o'chirish
-            5. Chiqish
-            """
-            print(text)
-            num = int_input("Raqam tanlang: ")
-            if num == 1:
+        text = """
+        1. Teacher haqida malumot
+        2. Teacher sozlamalari 
+        3. Teacher qo'shish
+        5. Chiqish
+        """
+        print(text)
+        num = int_input("Raqam tanlang: ")
+        if num == 1:
+            phone = self.choice_teacher_admin_for(file=file)
+            if phone == "none":
+                print("Hali teacher qo'shilmagan")
+            else:
                 self.teacher_about(phone=phone, file=file)
                 self.teacher_for(file)
-            elif num == 2:
+        elif num == 2:
+            phone = self.choice_teacher_admin_for(file=file)
+            if phone == "none":
+                print("Hali teacher qo'shilmagan")
+            else:
                 self.teacher_settings(phone=self.phone, file=file)
                 self.teacher_for(file)
-            elif num == 3:
-                self.add_teacher(file)
-                self.teacher_for(file)
-            elif num == 4:
-                self.delete_teacher(phone=phone, file=file)
-                self.teacher_for(file)
-            else:
-                self.exit = True
-                return self.exit
+        elif num == 3:
+            self.add_teacher(file)
+            self.teacher_for(file)
+        else:
+            self.exit = True
+            return self.exit
 
     def teacher_about(self, phone: str, file: dict) -> None:
         text = """
@@ -145,12 +146,26 @@ class TeacherFor(Teacher):
         3. Usernamesin o'zgartirish
         4. tug'ilgan kunini o'zgartirish
         5. Gmailni o'zgartirish
-        6. Chiqish
+        6. Teacherni o'chirish
+        7. Chiqish
         """
         print(text)
         num = int_input("Raqam tanlang: ")
         if num == 1:
             self.change_phone_admin('teacher', phone, file)
+            groups: dict = self.read_to_file(self.groups_file)
+            for group, value in groups.items():
+                if value['teachers'] == phone:
+                    try:
+                        value['teachers'].remove(phone)
+                        value['teachers'].append(self.phone)
+                    except ValueError:
+                        pass
+                    except KeyError:
+                        pass
+                    except IndexError:
+                        pass
+            self.write_to_file(self.groups_file, groups)
             self.teacher_settings(phone=self.phone, file=file)
         elif num == 2:
             self.change_password_admin('teacher', phone, file)
@@ -164,11 +179,69 @@ class TeacherFor(Teacher):
         elif num == 5:
             self.change_gmail_admin('teacher', phone, file)
             self.teacher_settings(phone=phone, file=file)
-        else:
+        elif num == 6:
+            self.delete_teacher(phone, file)
             self.teacher_settings(self.phone, file)
+        else:
+            self.teacher_for(file)
 
     def add_teacher(self, file: dict) -> None:
-        pass
+        groups: dict = self.read_to_file(self.groups_file)
+        group = self.find_group(groups)
+        if group != "none":
+            direction = groups[group]['direction']
+            name = input("To'liq ismini kriting: ").title()
+            phone = self.phone_input("Telefon raqamini kriting: ")
+            username = self.user_input(file)
+            password = input("Password: ").title().strip()
+            p = hashlib.sha256(password.encode("utf-8")).hexdigest()
+            birthday = self.birth_input("Birthday: ")
+            gmail = input("Gmail: ").lower().strip()
+            while "@gmail.com" not in gmail:
+                gmail = input("Gmailni korrekt formatda kiriting: ").lower().strip()
+            gender = self.list_choice(['male', 'female'])
+            user = {
+                phone: {
+                    "full_name": name,
+                    "username": username,
+                    "password": p,
+                    "birthday": birthday,
+                    "gmail": gmail,
+                    "gender": gender,
+                    "groups": {
+                        group: {
+                            "direction": direction,
+                            "status": True,
+                            "lessons": {}
+                        }
+                    }
+                }
+            }
+            file['teacher'].update(user)
+
+            self.write_to_file(self.users_file, file)
+            self.write_to_file(self.groups_file, groups)
+        else:
+            print("Gruh yo'q.")
 
     def delete_teacher(self, phone: str, file: dict) -> None:
+        group_file: dict = self.read_to_file(self.groups_file)
+        group: str = self.choice_group('teachers', group_file, phone)
+        group_file[group]['teachers'].remove(phone)
+        del file['teacher'][phone]
+        self.write_to_file(self.groups_file, group_file)
+        self.write_to_file(self.users_file, file)
+        print("O'chirildi")
+
+    def find_group(self, file: dict) -> str:
+        group_list: list = []
+        if len(file) > 0:
+            for group in file.keys():
+                group_list.append(group)
+            group: str = self.list_choice(group_list)
+            return group
+        else:
+            return "none"
+
+    def user_input(self, file: dict) -> str:
         pass

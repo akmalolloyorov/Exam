@@ -132,10 +132,10 @@ class StudentFor(PersonalAdmin):
         self.write_to_file(self.users_file, file)
         print("Student o'chirildi")
 
-    def choice_group(self, group_file: dict, phone: str) -> str:
+    def choice_group(self, type_: str, group_file: dict, phone: str) -> str:
         group_list: list = []
         for group, value in group_file.items():
-            for num in value['students'].keys():
+            for num in value[type_].keys():
                 if num == phone:
                     pass
                 else:
@@ -150,7 +150,7 @@ class StudentFor(PersonalAdmin):
 
     def add_student_in_group(self, phone: str, file: dict) -> None:
         groups: dict = self.read_to_file(self.groups_file)
-        group = self.choice_group(groups, phone)
+        group = self.choice_group('students', groups, phone)
         if group == "none":
             print("Guruh topilmadi")
             return

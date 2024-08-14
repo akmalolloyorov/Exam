@@ -357,6 +357,21 @@
             },
             "sms": [],
             "massages": {}
+        },
+        "+998966666666": {
+            "full_name": "Ad Dkjf",
+            "username": null,
+            "password": "4e07408562bedb8b60ce05c1decfe3ad16b72230967de01f640b7e4729b49fce",
+            "birthday": "02.03.2001",
+            "gmail": "dsf@gmail.com",
+            "gender": "male",
+            "groups": {
+                "n60": {
+                    "direction": "php",
+                    "status": true,
+                    "lessons": {}
+                }
+            }
         }
     },
     "admin": {
@@ -367,12 +382,6 @@
             "birthday": "16.12.2003",
             "gmail": "akmalolloyorov@gmail.com",
             "gender": "male"
-        }
-    },
-    "supper_admin": {
-        "+998999999999": {
-            "username": "admin",
-            "password": "ef2d127de37b942baad06145e54b0c619a1f22327b2ebbcfbec78f5564afe39d"
         }
     }
 }

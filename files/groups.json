@@ -11,5 +11,19 @@
         },
         "course_price": 1350000,
         "term": 8
+    },
+    "n48": {
+        "direction": "Java Script",
+        "teachers": {},
+        "students": {},
+        "course_price": {},
+        "term": 6
+    },
+    "n60": {
+        "direction": "php",
+        "teachers": {},
+        "students": {},
+        "course_price": {},
+        "term": 8
     }
 }

@@ -16,6 +16,19 @@ class PersonalTeacher(StudentFor):
         num = int_input("Raqam tanlang: ")
         if num == 1:
             self.change_phone_admin('teacher', phone, file)
+            groups: dict = self.read_to_file(self.groups_file)
+            for group, value in groups.items():
+                if value['teachers'] == phone:
+                    try:
+                        value['teachers'].remove(phone)
+                        value['teachers'].append(self.phone)
+                    except ValueError:
+                        pass
+                    except KeyError:
+                        pass
+                    except IndexError:
+                        pass
+            self.write_to_file(self.groups_file, groups)
             self.personal_teacher(self.phone, file)
         elif num == 2:
             self.change_user_admin('teacher', phone, file)
@@ -32,3 +45,6 @@ class PersonalTeacher(StudentFor):
         else:
             self.exit = True
             return self.exit
+
+    def change_phone_teacher(self, phone, file) -> None:
+        pass
