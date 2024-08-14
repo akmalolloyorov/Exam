@@ -228,6 +228,23 @@ class StudentFor(User):
             level = 5
         return level
 
+    def xp_l(self, level: int, xp: int) -> int:
+        self.__str__()
+        silver = 0
+        if level == 0:
+            silver = xp * 4
+        elif level == 1:
+            silver = xp * 5
+        elif level == 2:
+            silver = xp * 6
+        elif level == 3:
+            silver = xp * 7
+        elif level == 4:
+            silver = xp * 8
+        elif level == 5:
+            silver = xp * 9
+        return silver
+
     def xp_for(self, ball: int, level: int):
         self.__str__()
         xp = 0

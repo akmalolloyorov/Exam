@@ -16,15 +16,15 @@
                 }
             },
             "my_results": {
-                "xp": 24,
-                "silver": 96,
+                "xp": 34,
+                "silver": 132,
                 "be_lesson": [
-                    4,
-                    16
+                    6,
+                    20
                 ],
                 "be_homework": [
-                    20,
-                    80
+                    28,
+                    112
                 ],
                 "exam": [
                     0,
@@ -37,7 +37,8 @@
                 "darsga qatnashganingiz uchun 2 xp berildi",
                 "uyga vasifa bajarganingiz uchun 8 xp berild",
                 "darsga qatnashganingiz uchun 2 xp berildi",
-                "uyga vasifa bajarganingiz uchun 8 xp berild"
+                "uyga vasifa bajarganingiz uchun 10 xp berild",
+                "Sizning balingiz o'zgartirildi 10 dan 8 ga o'zgartirildi"
             ],
             "massages": [],
             "groups": {
@@ -60,6 +61,26 @@
                             "grade": 100,
                             "attendance": true,
                             "month": 1
+                        },
+                        "function": {
+                            "+998918743565": {
+                                "lesson_date": "16.08.2024",
+                                "start_time": "16:00",
+                                "end_time": "18:00",
+                                "grade": 0,
+                                "attendees": false,
+                                "month": 1
+                            }
+                        },
+                        "class": {
+                            "+998918743565": {
+                                "lesson_date": "18.08.2024",
+                                "start_time": "16:00",
+                                "end_time": "18:00",
+                                "grade": 94,
+                                "attendees": true,
+                                "month": 1
+                            }
                         }
                     }
                 }
@@ -81,28 +102,55 @@
                 }
             },
             "my_results": {
-                "xp": 0,
-                "silver": 0,
+                "xp": 24,
+                "silver": 88,
                 "be_lesson": [
-                    0,
-                    0
+                    4,
+                    8
                 ],
                 "be_homework": [
-                    0,
-                    0
+                    20,
+                    80
                 ],
                 "exam": [
                     0,
                     0
                 ]
             },
-            "sms": [],
+            "sms": [
+                "darsga qatnashganingiz uchun 2 xp berildi",
+                "uyga vasifa bajarganingiz uchun 10 xp berild",
+                "darsga qatnashganingiz uchun 2 xp berildi",
+                "uyga vasifa bajarganingiz uchun 10 xp berild",
+                "Sizning balingiz o'zgartirildi 10 dan 10 ga o'zgartirildi"
+            ],
             "massage": [],
             "groups": {
                 "n50": {
                     "direction": "python django, (backend)",
                     "status": true,
-                    "lessons": {}
+                    "lessons": {
+                        "function": {
+                            "+998997107655": {
+                                "lesson_date": "16.08.2024",
+                                "start_time": "16:00",
+                                "end_time": "18:00",
+                                "grade": 100,
+                                "attendees": true,
+                                "month": 1
+                            }
+                        },
+                        "class": {
+                            "+998997107655": {
+                                "lesson_date": "18.08.2024",
+                                "start_time": "16:00",
+                                "end_time": "18:00",
+                                "grade": 96,
+                                "attendees": true,
+                                "month": 1
+                            }
+                        }
+                    }
                 }
             }
         },
@@ -122,15 +170,15 @@
                 }
             },
             "my_results": {
-                "xp": 30,
-                "silver": 120,
+                "xp": 44,
+                "silver": 168,
                 "be_lesson": [
-                    6,
+                    8,
                     24
                 ],
                 "be_homework": [
-                    24,
-                    96
+                    36,
+                    144
                 ],
                 "exam": [
                     0,
@@ -139,11 +187,14 @@
             },
             "sms": [
                 "darsga qatnashganingiz uchun 2 xp berildi",
-                "uyga vasifa bajarganingiz uchun 8 xp berild",
+                "uyga vasifa bajarganingiz uchun 10 xp berild",
                 "darsga qatnashganingiz uchun 2 xp berildi",
                 "uyga vasifa bajarganingiz uchun 8 xp berild",
                 "darsga qatnashganingiz uchun 2 xp berildi",
-                "uyga vasifa bajarganingiz uchun 8 xp berild"
+                "uyga vasifa bajarganingiz uchun 8 xp berild",
+                "darsga qatnashganingiz uchun 2 xp berildi",
+                "uyga vasifa bajarganingiz uchun 10 xp berild",
+                "Sizning balingiz o'zgartirildi 10 dan 10 ga o'zgartirildi"
             ],
             "massages": [],
             "groups": {
@@ -166,6 +217,26 @@
                             "grade": 94,
                             "attendance": true,
                             "month": 1
+                        },
+                        "function": {
+                            "+998952203565": {
+                                "lesson_date": "16.08.2024",
+                                "start_time": "16:00",
+                                "end_time": "18:00",
+                                "grade": 100,
+                                "attendees": true,
+                                "month": 1
+                            }
+                        },
+                        "class": {
+                            "+998952203565": {
+                                "lesson_date": "18.08.2024",
+                                "start_time": "16:00",
+                                "end_time": "18:00",
+                                "grade": 95,
+                                "attendees": true,
+                                "month": 1
+                            }
                         }
                     }
                 }
@@ -175,7 +246,7 @@
     "teacher": {
         "+998931113565": {
             "full_name": "Masharipov Nodirbek",
-            "username": "nodirbek",
+            "username": "nod",
             "password": "ef2d127de37b942baad06145e54b0c619a1f22327b2ebbcfbec78f5564afe39d",
             "birthday": "11.10.2003",
             "gmail": "masharipov@gmail.com",
@@ -216,14 +287,74 @@
                                 }
                             },
                             "month": 1
+                        },
+                        "function": {
+                            "lesson_date": "16.08.2024",
+                            "start_time": "16:00",
+                            "end_time": "18:00",
+                            "student": {
+                                "+998918743565": {
+                                    "lesson_date": "16.08.2024",
+                                    "start_time": "16:00",
+                                    "end_time": "18:00",
+                                    "grade": 0,
+                                    "attendees": false,
+                                    "month": 1
+                                },
+                                "+998952203565": {
+                                    "lesson_date": "16.08.2024",
+                                    "start_time": "16:00",
+                                    "end_time": "18:00",
+                                    "grade": 100,
+                                    "attendees": true,
+                                    "month": 1
+                                },
+                                "+998997107655": {
+                                    "lesson_date": "16.08.2024",
+                                    "start_time": "16:00",
+                                    "end_time": "18:00",
+                                    "grade": 100,
+                                    "attendees": true,
+                                    "month": 1
+                                }
+                            },
+                            "month": 1
+                        },
+                        "class": {
+                            "lesson_date": "18.08.2024",
+                            "start_time": "16:00",
+                            "end_time": "18:00",
+                            "student": {
+                                "+998918743565": {
+                                    "lesson_date": "18.08.2024",
+                                    "start_time": "16:00",
+                                    "end_time": "18:00",
+                                    "grade": 94,
+                                    "attendees": true,
+                                    "month": 1
+                                },
+                                "+998952203565": {
+                                    "lesson_date": "18.08.2024",
+                                    "start_time": "16:00",
+                                    "end_time": "18:00",
+                                    "grade": 95,
+                                    "attendees": true,
+                                    "month": 1
+                                },
+                                "+998997107655": {
+                                    "lesson_date": "18.08.2024",
+                                    "start_time": "16:00",
+                                    "end_time": "18:00",
+                                    "grade": 96,
+                                    "attendees": true,
+                                    "month": 1
+                                }
+                            },
+                            "month": 1
                         }
                     }
                 }
             },
-            "students": [
-                "+998952203465",
-                "+998918743565"
-            ],
             "sms": [],
             "massages": {}
         }
