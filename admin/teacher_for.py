@@ -1,3 +1,5 @@
+import json
+
 from Exam_4.teacher.teacher import Teacher, int_input
 
 
@@ -10,7 +12,9 @@ class TeacherFor(Teacher):
             text = """
             1. Teacher haqida malumot
             2. Teacher sozlamalari 
-            3. Chiqish
+            3. Teacher qo'shish
+            4. Teacher o'chirish
+            5. Chiqish
             """
             print(text)
             num = int_input("Raqam tanlang: ")
@@ -19,6 +23,12 @@ class TeacherFor(Teacher):
                 self.teacher_for(file)
             elif num == 2:
                 self.teacher_settings(phone=self.phone, file=file)
+                self.teacher_for(file)
+            elif num == 3:
+                self.add_teacher()
+                self.teacher_for(file)
+            elif num == 4:
+                self.delete_teacher(phone=phone, file=file)
                 self.teacher_for(file)
             else:
                 self.exit = True
@@ -62,26 +72,55 @@ class TeacherFor(Teacher):
             self.teacher_for(file)
 
     def view_teacher_students(self, phone: str, file: dict) -> None:
-        pass
+        group_name_list: list = []
+        group_user_list: list = []
+        group_file: dict = self.read_to_file(self.groups_file)
+        if len(file['teacher'][phone]['groups']) > 0:
+            for group, value in file['teacher'][phone]['groups'].items():
+                group_name_list.append(value['direction'])
+                group_user_list.append(group)
+            group_name: str = self.list_choice(group_name_list)
+            group_index: int = group_name_list.index(group_name)
+            group_user: str = group_user_list[group_index]
+            print("Studentlar:")
+            for user in group_file[group_user]['students'].keys():
+                print(file['student'][user]['full_name'])
+        else:
+            print("Guruhlar yo'q")
 
     def view_teacher_groups(self, phone: str, file: dict) -> None:
-        pass
+        group_name_list: list = []
+        self.__str__()
+        if len(file['teacher'][phone]['groups']) > 0:
+            for group, value in file['teacher'][phone]['groups'].items():
+                group_name_list.append(value['direction'])
+            print(f"Guruhlar:, {json.dumps(group_name_list, indent=4)}")
+        else:
+            print("Guruhlar yo'q")
 
     def view_teacher_name(self, phone: str, file: dict) -> None:
-        pass
+        name: str = file['teacher'][phone]['full_name']
+        print(f"To'liq ismi: {name}")
+        self.__str__()
 
     def view_teacher_gmail(self, phone: str, file: dict) -> None:
-        pass
+        gmail: str = file['teacher'][phone]['gmail']
+        print(f"Gmail: {gmail}")
+        self.__str__()
 
     def view_teacher_birthday(self, phone: str, file: dict) -> None:
-        pass
+        birth = file['teacher'][phone]['birthday']
+        print(f"Tug'ilgan sanasi: {birth}")
+        self.__str__()
 
     def view_teacher_gender(self, phone: str, file: dict) -> None:
-        pass
+        gender: str = file['teacher'][phone]['gender']
+        print(f"Jins: {gender}")
+        self.__str__()
 
     def view_teacher_user_name(self, phone, file: dict) -> None:
-        name: str = file['teacher'][phone]['full_name']
-        print(f"Ustoz to'liq simi: {name}")
+        name: str = file['teacher'][phone]['username']
+        print(f"username: {name}")
         self.__str__()
 
     def choice_teacher_admin_for(self, file: dict) -> str:
@@ -127,3 +166,9 @@ class TeacherFor(Teacher):
             self.teacher_settings(phone=phone, file=file)
         else:
             self.teacher_settings(self.phone, file)
+
+    def add_teacher(self) -> None:
+        pass
+
+    def delete_teacher(self, phone: str, file: dict) -> None:
+        pass
