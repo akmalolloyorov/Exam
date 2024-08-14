@@ -16,6 +16,7 @@ class StudentFor(PersonalAdmin):
 
     def student_for(self, file: dict) -> bool:
         phone = self.choice_user(file)
+        self.phone = phone
         text = """
         1. Teleforn raqamini o'zgartirish
         2. To'liq ismini o'zgartirish
