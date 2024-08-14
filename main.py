@@ -11,6 +11,7 @@ class Main(SupperAdmin):
 
     def show_menu(self) -> None:
         text = """
+        Raqam tanlang
         1. Kirish
         2. Ro'yhatdan o'tish
         3. Chiqish
