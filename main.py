@@ -121,4 +121,7 @@ class Main(SupperAdmin):
 
 
 main = Main()
-main.show_menu()
+try:
+    main.show_menu()
+except Exception as k:
+    print(k)
