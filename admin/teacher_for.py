@@ -231,6 +231,7 @@ class TeacherFor(Teacher):
                 groups[group]['students'].append(phone)
                 self.write_to_file(self.users_file, file)
                 self.write_to_file(self.groups_file, groups)
+                print("Qo'shildi...")
             else:
                 print('guruh band')
         else:
