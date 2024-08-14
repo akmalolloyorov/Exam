@@ -1,3 +1,5 @@
+import json
+
 from Exam_4.user.payments import Payments, int_input
 
 
@@ -13,7 +15,8 @@ class User(Payments):
         5. Reyting
         6. Do'kon
         7. Sozlamalar
-        8. Chiqish
+        8. SMS larni ko'rish
+        9. Chiqish
         """
         print(text)
         num = int_input("Raqamni tanglang: ")
@@ -41,6 +44,9 @@ class User(Payments):
             if self.exit:
                 self.exit = False
                 self.show_menu_user(phone=self.phone, file=file)
+        elif num == 8:
+            self.view_sms(phone=phone, file=file)
+            self.show_menu_user(phone=phone, file=file)
         else:
             self.exit = True
             return self.exit
@@ -111,3 +117,7 @@ class User(Payments):
 
     # def shop(self, phone: str, file: dict) -> None:
     #     print("Tez orada qo'shiladi")
+    def view_sms(self, phone: str, file: dict) -> None:
+        sms_list: list = file['student'][phone]['sms']
+        print(json.dumps(sms_list, indent=4))
+        self.__str__()

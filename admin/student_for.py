@@ -1,9 +1,9 @@
-from Exam_4.user.user import User, int_input
+from Exam_4.admin.personal_admin import PersonalAdmin, int_input
 import hashlib
 import random
 
 
-class StudentFor(User):
+class StudentFor(PersonalAdmin):
     def choice_user(self, file: dict):
         full_name_list: list = []
         phone_list: list = []
@@ -175,6 +175,7 @@ class StudentFor(User):
                     return phone_teacher
 
     def change_student_ball(self, phone: str, file: dict) -> None:
+        group_file: dict = self.read_to_file(self.groups_file)
         group_list = []
         lesson_list = []
         if len(file['student'][phone]['groups']) > 0:
@@ -199,10 +200,11 @@ class StudentFor(User):
                 file['student'][phone]['my_results']['xp'] += e_xp - old_xp
                 file['student'][phone]['my_results']['silver'] += e_silver - old_silver
                 file['student'][phone]['my_results']['be_homework'][0] += e_xp - old_xp
+                group_file[group]['students'][phone] += e_xp - old_xp
                 file['student'][phone]['my_results']['be_homework'][1] += e_silver - old_silver
                 teacher = self.choice_teacher(group, file)
                 file['teacher'][teacher]['groups'][group]['lessons'][lesson]['student'][phone]['grade'] = ball
-
+                self.write_to_file(self.groups_file, group_file)
                 self.write_to_file(self.users_file, file)
                 print(f"Ball o'zgartirildi.")
             else:

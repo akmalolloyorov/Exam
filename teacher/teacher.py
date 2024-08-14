@@ -26,8 +26,10 @@ class Teacher(PersonalTeacher):
             self.view_lesson_time(phone, file)
             self.show_menu_teacher(phone, file)
         elif num == 5:
-            print("tez kunlarda.")
-            self.show_menu_teacher(phone, file)
+            self.personal_teacher(phone, file)
+            if self.exit:
+                self.exit = False
+                self.show_menu_teacher(phone, file)
         else:
             self.exit = True
             return self.exit

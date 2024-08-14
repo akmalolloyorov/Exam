@@ -39,7 +39,7 @@ class Main(Admin):
                             return self.show_menu()
 
                     elif i == "teacher":
-                        self.show_menu_teacher(phone=phone, file= user_file)
+                        self.show_menu_teacher(phone=phone, file=user_file)
                         if self.exit:
                             self.exit = False
                             return self.show_menu()
