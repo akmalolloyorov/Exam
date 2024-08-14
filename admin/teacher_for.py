@@ -185,42 +185,54 @@ class TeacherFor(Teacher):
         else:
             self.teacher_for(file)
 
+    def check_group(self, group: str, file: dict) -> bool:
+        self.__str__()
+        count = len(file[group]['teachers'])
+        if count == 0:
+            c = True
+        else:
+            c = False
+        return c
+
     def add_teacher(self, file: dict) -> None:
         groups: dict = self.read_to_file(self.groups_file)
         group = self.find_group(groups)
         if group != "none":
-            direction = groups[group]['direction']
-            name = input("To'liq ismini kriting: ").title()
-            phone = self.phone_input("Telefon raqamini kriting: ")
-            username = self.user_input(file)
-            password = input("Password: ").title().strip()
-            p = hashlib.sha256(password.encode("utf-8")).hexdigest()
-            birthday = self.birth_input("Birthday: ")
-            gmail = input("Gmail: ").lower().strip()
-            while "@gmail.com" not in gmail:
-                gmail = input("Gmailni korrekt formatda kiriting: ").lower().strip()
-            gender = self.list_choice(['male', 'female'])
-            user = {
-                phone: {
-                    "full_name": name,
-                    "username": username,
-                    "password": p,
-                    "birthday": birthday,
-                    "gmail": gmail,
-                    "gender": gender,
-                    "groups": {
-                        group: {
-                            "direction": direction,
-                            "status": True,
-                            "lessons": {}
+            if self.check_group(group, file):
+                direction = groups[group]['direction']
+                name = input("To'liq ismini kriting: ").title()
+                phone = self.phone_input("Telefon raqamini kriting: ")
+                username = self.user_input(file)
+                password = input("Password: ").title().strip()
+                p = hashlib.sha256(password.encode("utf-8")).hexdigest()
+                birthday = self.birth_input("Birthday: ")
+                gmail = input("Gmail: ").lower().strip()
+                while "@gmail.com" not in gmail:
+                    gmail = input("Gmailni kerakli formatda kiriting: ").lower().strip()
+                gender = self.list_choice(['male', 'female'])
+                user = {
+                    phone: {
+                        "full_name": name,
+                        "username": username,
+                        "password": p,
+                        "birthday": birthday,
+                        "gmail": gmail,
+                        "gender": gender,
+                        "groups": {
+                            group: {
+                                "direction": direction,
+                                "status": True,
+                                "lessons": {}
+                            }
                         }
                     }
                 }
-            }
-            file['teacher'].update(user)
-
-            self.write_to_file(self.users_file, file)
-            self.write_to_file(self.groups_file, groups)
+                file['teacher'].update(user)
+                groups[group]['students'].append(phone)
+                self.write_to_file(self.users_file, file)
+                self.write_to_file(self.groups_file, groups)
+            else:
+                print('guruh band')
         else:
             print("Gruh yo'q.")
 
@@ -244,4 +256,12 @@ class TeacherFor(Teacher):
             return "none"
 
     def user_input(self, file: dict) -> str:
-        pass
+        self.__str__()
+        user_list: list = []
+        for i, j in file.items():
+            for n, m in j.items():
+                user_list.append(m['username'])
+        username = input("Enter username: ").lower().strip()
+        while username in user_list:
+            username = input("Bu username band boshqasin kriting: ").lower().strip()
+        return username
