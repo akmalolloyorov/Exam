@@ -8,6 +8,7 @@ class SupperAdmin(Admin):
         text = """
         1. Admin qo'shmoq
         2. Admin o'chiqmoq
+        3. Exit
         """
         print(text)
         num = int_input("Raqam tanlang: ")
@@ -43,8 +44,8 @@ class SupperAdmin(Admin):
                 "gender": gender,
             }
         }
-        file.update(user)
-        self.write_to_file(self.users_file, user)
+        file['admin'].update(user)
+        self.write_to_file(self.users_file, file)
         print(f"Admin qo'shilid amdin uername: {username}")
 
     def delete_admin(self, file):
@@ -67,7 +68,7 @@ class SupperAdmin(Admin):
             for j in i.keys():
                 phone_list.append(j)
         phone = self.phone_input("Telefon raqam kriting: ")
-        while phone not in phone_list:
+        while phone in phone_list:
             print("Ushbu raqam mavjud")
             phone = self.phone_input("Telefon raqam kriting: ")
         return phone

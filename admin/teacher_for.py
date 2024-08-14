@@ -267,4 +267,4 @@ class TeacherFor(Teacher):
         username = random.randint(100000, 999999)
         while username in user_list:
             username = random.randint(100000, 999999)
-        return "username"
+        return f"{username}"
