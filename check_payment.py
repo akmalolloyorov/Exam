@@ -59,6 +59,7 @@ def check_month(student_phone: str, file: dict, group: str) -> bool:
                     file['student'][student_phone]['my_payments'].update(payment)
                     with open(file="users.json", mode='w', encoding='UTF-8') as fi:
                         json.dump(file, fi, indent=4)
+                    return True
                 else:
                     print("Student balance yetmaydi")
                     return False

@@ -23,7 +23,7 @@ class PersonalTeacher(StudentFor):
                         value['teachers'] = self.phone
                     except KeyError:
                         pass
-                    
+
             self.write_to_file(self.groups_file, groups)
             self.personal_teacher(self.phone, file)
         elif num == 2:
