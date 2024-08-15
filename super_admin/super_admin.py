@@ -8,7 +8,8 @@ class SupperAdmin(Admin):
         text = """
         1. Admin qo'shmoq
         2. Admin o'chiqmoq
-        3. Exit
+        3. To'lovlarni tekshirish vaqtini o'zgartirish
+        4. Exit
         """
         print(text)
         num = int_input("Raqam tanlang: ")
@@ -18,9 +19,21 @@ class SupperAdmin(Admin):
         elif num == 2:
             self.delete_admin(file)
             self.show_menu_supper_admin(file)
+        elif num == 3:
+            self.check_paid_s()
+            self.show_menu_supper_admin(file)
         else:
             self.exit = True
             return self.exit
+
+    def check_paid_s(self):
+        self.__str__()
+        with open('files/sleep.txt', 'r') as f:
+            old: int = int(f.read())
+        print(f"Oldingi vaqt: {old}")
+        new = int_input('Yange vaqt kritin: ')
+        with open('files/sleep.txt', 'w') as f:
+            f.write(str(new))
 
     def add_admin(self, file):
         name = input("To'liq ismini kriting: ")
