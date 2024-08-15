@@ -1,9 +1,9 @@
 {
     "n50": {
         "direction": "python django, (backend)",
-        "teachers": {
-            "+998931113565": 100
-        },
+        "teachers": [
+            "+998931113565"
+        ],
         "students": {
             "+998918743565": 42,
             "+998952203565": 54,
@@ -14,14 +14,14 @@
     },
     "n48": {
         "direction": "Java Script",
-        "teachers": {},
+        "teachers": [],
         "students": {},
         "course_price": {},
         "term": 6
     },
     "n60": {
         "direction": "php",
-        "teachers": {},
+        "teachers": [],
         "students": {},
         "course_price": {},
         "term": 8

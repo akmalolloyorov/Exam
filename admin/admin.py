@@ -53,7 +53,7 @@ class Admin(TeacherFor):
         group = {
             group_name: {
                 "direction": group_d,
-                "teachers": {},
+                "teachers": [],
                 "students": {},
                 "course_price": {},
                 "term": term
@@ -88,5 +88,3 @@ class Admin(TeacherFor):
             self.write_to_file(self.users_file, file)
         else:
             print("guruhlar yo'q.")
-
-

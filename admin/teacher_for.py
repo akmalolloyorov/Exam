@@ -199,7 +199,7 @@ class TeacherFor(Teacher):
         groups: dict = self.read_to_file(self.groups_file)
         group = self.find_group(groups)
         if group != "none":
-            if self.check_group(group, file):
+            if self.check_group(group, groups):
                 direction = groups[group]['direction']
                 name = input("To'liq ismini kriting: ").title()
                 phone = self.phone_input("Telefon raqamini kriting: ")
@@ -229,7 +229,7 @@ class TeacherFor(Teacher):
                     }
                 }
                 file['teacher'].update(user)
-                groups[group]['students'].append(phone)
+                groups[group]['teachers'].append(phone)
                 self.write_to_file(self.users_file, file)
                 self.write_to_file(self.groups_file, groups)
                 print("Qo'shildi...")
