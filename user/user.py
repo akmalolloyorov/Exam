@@ -6,7 +6,6 @@ from Exam_4.user.payments import Payments, int_input
 class User(Payments):
     def show_menu_user(self, phone: str, file: dict) -> bool:
         self.phone = phone
-        self.home_page(phone=phone, file=file)
         text = """
         1. ⌂ Bosh sahifa
         2. To'lovlarim
@@ -21,6 +20,7 @@ class User(Payments):
         print(text)
         num = int_input("Raqamni tanglang: ")
         if num == 1:
+            self.home_page(self.phone, file)
             self.show_menu_user(phone=phone, file=file)
         elif num == 2:
             self.payment(phone=phone, file=file)
