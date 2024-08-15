@@ -99,16 +99,23 @@ def current_time() -> str:
     return datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
 
+stop_event = threading.Event()
+
+
 def check_time(file: dict):
     with open(file="files/sleep.txt", mode='r', encoding="UTF-8") as f:
         time_for: int = int(f.read().strip())
-    stop_event = threading.Event()
-    t = threading.Thread(target=thread_worker, args=(stop_event, file, time_for))
+
+    t = threading.Thread(target=thread_worker, args=(file, time_for))
     t.start()
     return stop_event
 
 
-def thread_worker(stop_event, file: dict, time_for):
+def stop_thread():
+    stop_event.set()
+
+
+def thread_worker(file: dict, time_for):
     while not stop_event.is_set():
         check_payment(file)
         time.sleep(time_for)

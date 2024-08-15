@@ -1,7 +1,8 @@
 # Najot talim dasturi
 
 # Dastur haqida
-
+    Hamma userlarning paroli 5 yani "besh"
+    Super asminniki esa show_menu() qismida kritiladi parol esa to'rtta no'l 0000
 # Eslatma:
 
     Supaer admin: admin qo'shadi 

@@ -17,11 +17,11 @@
                 }
             },
             "my_results": {
-                "xp": 34,
-                "silver": 132,
+                "xp": 36,
+                "silver": 136,
                 "be_lesson": [
-                    6,
-                    20
+                    8,
+                    24
                 ],
                 "be_homework": [
                     28,
@@ -39,7 +39,8 @@
                 "uyga vasifa bajarganingiz uchun 8 xp berild",
                 "darsga qatnashganingiz uchun 2 xp berildi",
                 "uyga vasifa bajarganingiz uchun 10 xp berild",
-                "Sizning balingiz o'zgartirildi 10 dan 8 ga o'zgartirildi"
+                "Sizning balingiz o'zgartirildi 10 dan 8 ga o'zgartirildi",
+                "darsga qatnashganingiz uchun 2 xp berildi"
             ],
             "massages": [],
             "groups": {
@@ -82,6 +83,16 @@
                                 "attendees": true,
                                 "month": 1
                             }
+                        },
+                        "list, tuple, set and dict": {
+                            "+998918743565": {
+                                "lesson_date": "18.08.2024",
+                                "start_time": "16:00",
+                                "end_time": "18:00",
+                                "grade": "ball",
+                                "attendees": true,
+                                "month": 1
+                            }
                         }
                     }
                 }
@@ -104,11 +115,11 @@
                 }
             },
             "my_results": {
-                "xp": 24,
-                "silver": 88,
+                "xp": 26,
+                "silver": 92,
                 "be_lesson": [
-                    4,
-                    8
+                    6,
+                    12
                 ],
                 "be_homework": [
                     20,
@@ -124,7 +135,8 @@
                 "uyga vasifa bajarganingiz uchun 10 xp berild",
                 "darsga qatnashganingiz uchun 2 xp berildi",
                 "uyga vasifa bajarganingiz uchun 10 xp berild",
-                "Sizning balingiz o'zgartirildi 10 dan 10 ga o'zgartirildi"
+                "Sizning balingiz o'zgartirildi 10 dan 10 ga o'zgartirildi",
+                "darsga qatnashganingiz uchun 2 xp berildi"
             ],
             "massage": [],
             "groups": {
@@ -151,6 +163,16 @@
                                 "attendees": true,
                                 "month": 1
                             }
+                        },
+                        "list, tuple, set and dict": {
+                            "+998997107655": {
+                                "lesson_date": "18.08.2024",
+                                "start_time": "16:00",
+                                "end_time": "18:00",
+                                "grade": "ball",
+                                "attendees": true,
+                                "month": 1
+                            }
                         }
                     }
                 }
@@ -173,11 +195,11 @@
                 }
             },
             "my_results": {
-                "xp": 44,
-                "silver": 168,
+                "xp": 46,
+                "silver": 172,
                 "be_lesson": [
-                    8,
-                    24
+                    10,
+                    28
                 ],
                 "be_homework": [
                     36,
@@ -197,7 +219,8 @@
                 "uyga vasifa bajarganingiz uchun 8 xp berild",
                 "darsga qatnashganingiz uchun 2 xp berildi",
                 "uyga vasifa bajarganingiz uchun 10 xp berild",
-                "Sizning balingiz o'zgartirildi 10 dan 10 ga o'zgartirildi"
+                "Sizning balingiz o'zgartirildi 10 dan 10 ga o'zgartirildi",
+                "darsga qatnashganingiz uchun 2 xp berildi"
             ],
             "massages": [],
             "groups": {
@@ -237,6 +260,16 @@
                                 "start_time": "16:00",
                                 "end_time": "18:00",
                                 "grade": 95,
+                                "attendees": true,
+                                "month": 1
+                            }
+                        },
+                        "list, tuple, set and dict": {
+                            "+998952203565": {
+                                "lesson_date": "18.08.2024",
+                                "start_time": "16:00",
+                                "end_time": "18:00",
+                                "grade": "ball",
                                 "attendees": true,
                                 "month": 1
                             }
@@ -349,6 +382,38 @@
                                     "start_time": "16:00",
                                     "end_time": "18:00",
                                     "grade": 96,
+                                    "attendees": true,
+                                    "month": 1
+                                }
+                            },
+                            "month": 1
+                        },
+                        "list, tuple, set and dict": {
+                            "lesson_date": "18.08.2024",
+                            "start_time": "16:00",
+                            "end_time": "18:00",
+                            "student": {
+                                "+998918743565": {
+                                    "lesson_date": "18.08.2024",
+                                    "start_time": "16:00",
+                                    "end_time": "18:00",
+                                    "grade": "ball",
+                                    "attendees": true,
+                                    "month": 1
+                                },
+                                "+998952203565": {
+                                    "lesson_date": "18.08.2024",
+                                    "start_time": "16:00",
+                                    "end_time": "18:00",
+                                    "grade": "ball",
+                                    "attendees": true,
+                                    "month": 1
+                                },
+                                "+998997107655": {
+                                    "lesson_date": "18.08.2024",
+                                    "start_time": "16:00",
+                                    "end_time": "18:00",
+                                    "grade": "ball",
                                     "attendees": true,
                                     "month": 1
                                 }

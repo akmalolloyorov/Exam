@@ -1,6 +1,6 @@
 import hashlib
 import random
-from Exam_4.check_payment import check_time
+from Exam_4.check_payment import check_time, stop_thread
 from Exam_4.super_admin.super_admin import SupperAdmin, int_input
 
 
@@ -10,7 +10,6 @@ class Main(SupperAdmin):
         self.true = False
 
     def show_menu(self) -> None:
-        ti = check_time(self.file())
         text = """
         Raqam tanlang
         1. Kirish
@@ -30,7 +29,6 @@ class Main(SupperAdmin):
                 self.exit = False
                 return self.show_menu()
         else:
-            ti.set()
             print("Dastur tugadi...")
 
     def login(self) -> None:
@@ -126,7 +124,10 @@ class Main(SupperAdmin):
 
 
 main = Main()
-try:
-    main.show_menu()
-except KeyboardInterrupt:
-    pass
+if __name__ == '__main__':
+    file_ = main.file()
+    check_time(file_)
+    try:
+        main.show_menu()
+    finally:
+        stop_thread()
