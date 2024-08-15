@@ -41,7 +41,7 @@ def check_month(student_phone: str, file: dict, group: str) -> bool:
     student_balance: int = user_balance(student_phone, file)
 
     lessons: int = check_lesson(student_phone, file, group)
-    for m in range(1, month):
+    for m in range(1, month + 1):
         if m <= paid_month:
             pass
         else:
