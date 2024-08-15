@@ -1,6 +1,6 @@
 import hashlib
 import random
-
+from Exam_4.check_payment import check_time
 from Exam_4.super_admin.super_admin import SupperAdmin, int_input
 
 
@@ -10,6 +10,7 @@ class Main(SupperAdmin):
         self.true = False
 
     def show_menu(self) -> None:
+        ti = check_time(self.file())
         text = """
         Raqam tanlang
         1. Kirish
@@ -29,6 +30,7 @@ class Main(SupperAdmin):
                 self.exit = False
                 return self.show_menu()
         else:
+            ti.set()
             print("Dastur tugadi...")
 
     def login(self) -> None:
@@ -37,8 +39,8 @@ class Main(SupperAdmin):
         password: str = input("parol: ")
         p = hashlib.sha256(password.encode("utf-8")).hexdigest()
         for i, j in user_file.items():
-            for phone, k in j.items():
-                if k["username"] == username and k['password'] == p:
+            for phone, km in j.items():
+                if km["username"] == username and km['password'] == p:
                     if i == "student":
                         self.show_menu_user(phone=phone, file=user_file)
                         if self.exit:
@@ -119,9 +121,12 @@ class Main(SupperAdmin):
             self.exit = False
             return self.show_menu()
 
+    def file(self) -> dict:
+        return self.read_to_file(self.users_file)
+
 
 main = Main()
 try:
     main.show_menu()
-except Exception as k:
-    print(k)
+except KeyboardInterrupt:
+    pass
