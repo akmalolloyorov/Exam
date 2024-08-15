@@ -53,7 +53,7 @@ class Admin(TeacherFor):
         group = {
             group_name: {
                 "direction": group_d,
-                "teachers": [],
+                "teachers": "none",
                 "students": {},
                 "course_price": {},
                 "term": term

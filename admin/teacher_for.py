@@ -11,7 +11,7 @@ class TeacherFor(Teacher):
         1. Teacher haqida malumot
         2. Teacher sozlamalari 
         3. Teacher qo'shish
-        5. Chiqish
+        4. Chiqish
         """
         print(text)
         num = int_input("Raqam tanlang: ")
@@ -27,7 +27,7 @@ class TeacherFor(Teacher):
             if phone == "none":
                 print("Hali teacher qo'shilmagan")
             else:
-                self.teacher_settings(phone=self.phone, file=file)
+                self.teacher_settings(phone=phone, file=file)
                 self.teacher_for(file)
         elif num == 3:
             self.add_teacher(file)
@@ -158,13 +158,8 @@ class TeacherFor(Teacher):
             for group, value in groups.items():
                 if value['teachers'] == phone:
                     try:
-                        value['teachers'].remove(phone)
-                        value['teachers'].append(self.phone)
-                    except ValueError:
-                        pass
+                        value['teachers'] = self.phone
                     except KeyError:
-                        pass
-                    except IndexError:
                         pass
             self.write_to_file(self.groups_file, groups)
             self.teacher_settings(phone=self.phone, file=file)
@@ -188,8 +183,7 @@ class TeacherFor(Teacher):
 
     def check_group(self, group: str, file: dict) -> bool:
         self.__str__()
-        count = len(file[group]['teachers'])
-        if count == 0:
+        if file[group]['teachers'] == "none":
             c = True
         else:
             c = False
@@ -229,7 +223,7 @@ class TeacherFor(Teacher):
                     }
                 }
                 file['teacher'].update(user)
-                groups[group]['teachers'].append(phone)
+                groups[group]['teachers'] = phone
                 self.write_to_file(self.users_file, file)
                 self.write_to_file(self.groups_file, groups)
                 print("Qo'shildi...")
