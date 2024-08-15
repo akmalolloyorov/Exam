@@ -20,14 +20,10 @@ class PersonalTeacher(StudentFor):
             for group, value in groups.items():
                 if value['teachers'] == phone:
                     try:
-                        value['teachers'].remove(phone)
-                        value['teachers'].append(self.phone)
-                    except ValueError:
-                        pass
+                        value['teachers'] = self.phone
                     except KeyError:
                         pass
-                    except IndexError:
-                        pass
+                    
             self.write_to_file(self.groups_file, groups)
             self.personal_teacher(self.phone, file)
         elif num == 2:
