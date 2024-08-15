@@ -70,16 +70,20 @@ class Teacher(PersonalTeacher):
                     print(f"{file['student'][i]['full_name']} kelganmi:")
                     choice = self.list_choice(['ha', "yo'q"])
                     xp = file['student'][i]['my_results']['xp']
-                    if choice == "ha":
-                        group_file[group]['students'][i] += 2
-                        active = True
-                        ball = 'ball'
-                        sms = "darsga qatnashganingiz uchun 2 xp berildi"
-                        file['student'][i]['sms'].append(sms)
-                        file['student'][i]['my_results']['xp'] += 2
-                        file['student'][i]['my_results']['silver'] += self.xp_l(self.find_level(xp), 1)
-                        file['student'][i]['my_results']['be_lesson'][0] += 2
-                        file['student'][i]['my_results']['be_lesson'][1] += self.xp_l(self.find_level(xp), 1)
+                    if file['student'][i]['groups'][group]['status']:
+                        if choice == "ha":
+                            group_file[group]['students'][i] += 2
+                            active = True
+                            ball = 'ball'
+                            sms = "darsga qatnashganingiz uchun 2 xp berildi"
+                            file['student'][i]['sms'].append(sms)
+                            file['student'][i]['my_results']['xp'] += 2
+                            file['student'][i]['my_results']['silver'] += self.xp_l(self.find_level(xp), 1)
+                            file['student'][i]['my_results']['be_lesson'][0] += 2
+                            file['student'][i]['my_results']['be_lesson'][1] += self.xp_l(self.find_level(xp), 1)
+                        else:
+                            ball = 0
+                            active = False
                     else:
                         ball = 0
                         active = False
@@ -95,6 +99,7 @@ class Teacher(PersonalTeacher):
                     file['teacher'][phone]['groups'][group]['lessons'][lesson_name]['student'].update(user)
                     self.write_to_file(self.users_file, file)
                     self.write_to_file(self.groups_file, group_file)
+
                 print("Dars qo'shildi")
         else:
             print("Sizning baholash uchun guruhingiz yo'q adminga murojat qiling")
